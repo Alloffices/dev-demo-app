@@ -1,0 +1,44 @@
+<section>
+  <!-- Renders backtrack button -->
+  <%= render "./posts/backtrack" %>
+  <!-- end  -->
+  <div class="container">
+    <div class="col-8">
+      <div class="container-inner-create-page">
+        <%= form_with(model: project, local: true) do |form| %>
+          <% if project.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(project.errors.count, "error") %> prohibited this post from being saved:</h2>
+              <ul>
+              <% project.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class="field">
+            <h2 class="form-labels">Enter Project Name</h2>
+            <p class="form-sub-txt">You can enter a maximum of 30 characters</p> 
+            <%= form.text_field :name, id: :project_name, :maxlength => 30, :size => 30, :class => "input_forms", placeholder: "Give your project a name", required: true %>
+          </div>
+           <div class="field">
+            <h2 class="form-labels">Enter Project Date</h2>
+            <p class="form-sub-txt">Today's date</p> 
+      			<input type="text" id="today" readonly="true" disabled="true", class="input_forms" />
+            <p class="form-sub-txt">Project Start Date</p> 
+            <%= form.text_field :start_date, id: "startDate" , onchange: "javascript:updateProgress();", class: "input_forms", required: true %>
+            <p class="form-sub-txt">Project End Date</p> 
+            <%= form.text_field :end_date, id: "endDate" , onchange: "javascript:updateProgress();", class: "input_forms", required: true %>
+          </div>
+          <div class="actions">
+            <%= form.submit class: "btn-create-new" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-4">
+      <p class="btn-resources-edit"><i class="fa fa-angle-down" aria-hidden="true"></i></p>
+      <%= link_to 'See All Projects', projects_path, class: "btn-resources-edit" %>
+    </div>
+  </div>
+</section>

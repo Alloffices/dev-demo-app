@@ -1,0 +1,125 @@
+<p id="notice"><%= notice %></p>
+
+
+<!-- START CONTAINER FLUID -->
+<div class=" container container-fixed-lg">
+  <!-- START card -->
+  <div class="card card-transparent">
+    <div class="card-header ">
+    <div class="card-title">Active Website Builds
+    </div>
+    <div class="pull-right">
+      <div class="col-xs-12">
+        <% if user_signed_in?  %>
+        <!-- User must be signed in -->
+        <% if current_user.admin? %>
+          <%= link_to 'New Project', new_project_path, id: "show-modal", class: "btn btn-primary btn-cons" %>
+        <% end %>
+        <% else %>
+          <!-- Must sign in --> 
+        <% end %>
+        
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  <!-- START PAGE CONTENT -->
+  <div class="content">
+    <!-- START CONTAINER FLUID -->
+    <div class="container sm-padding-10 p-t-20 p-l-0 p-r-0">
+      <!-- START ROW -->
+      <div class="row">
+        <!-- Logic Start -->
+        <% @projects.each_with_index do |project, index| %>
+
+            <div class="col-sm-3 col-md-6 col-lg-4 d-flex flex-column">
+              <!-- START WIDGET widget_weekly_sales_card-->
+              <div class="card no-border widget-loader-bar m-b-10 m-r-10">
+                <div class="container-xs-height full-height">
+                  <div class="row-xs-height">
+                    <div class="col-xs-height col-top">
+                      <div class="card-header  top-left top-right">
+                        <div class="card-title">
+                          <span class="font-montserrat fs-11 all-caps">Details <i class="fa fa-chevron-right"></i>
+                              </span>
+                        </div>
+                        <div class="card-controls">
+                          <ul>
+                            <li><a href="#" class="portlet-refresh text-black" data-toggle="refresh"><i class="portlet-icon portlet-icon-refresh"></i></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row-xs-height">
+                    <div class="col-xs-height col-top">
+                      <div class="p-l-20 p-t-50 p-b-40 p-r-20">
+                        <h3 class="no-margin p-b-5"><%= project.name %></h3>
+                        <span class="small hint-text pull-left">Start: <%= project.start_date.strftime("%b %d, %Y") %></span>
+                        <span class="pull-right small text-primary">Launch: <%= project.end_date.strftime("%b %d, %Y") %></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row-xs-height">
+                    <div class="col-xs-height col-bottom">
+                      <div id="progressbarForm">
+                        <div id="progressbar">    
+                          <div id="progressbar<%= index %>"></div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- END WIDGET -->
+            </div>
+        <% end %>
+      </div>
+      <!-- END ROW -->
+    </div>
+    <!-- END CONTAINER FLUID -->
+  </div>
+  <!-- END PAGE CONTENT -->
+</div>
+<!-- END CONTAINER FLUID -->
+
+<script>
+  // Update the progressbar
+  function updateProgress(id, obj) {
+    var startDate = obj.start_date;
+    var endDate = obj.end_date;
+
+    if (startDate != "" && endDate != "") {
+      var minDate = new Date(convertStringToDate(startDate));
+      var today = new Date();
+      var maxDate = new Date(convertStringToDate(endDate));
+
+      var nbTotalDays = Math.floor((maxDate.getTime() - minDate.getTime()) / 86400000);
+      var nbPastDays = Math.floor((today.getTime() - minDate.getTime()) / 86400000);
+
+      var percent = nbPastDays / nbTotalDays * 100;
+
+      // Extreme cases
+      if (percent < 0) {
+        percent = 0;
+      } else if (percent > 100) {
+        percent = 100;
+      }
+    
+      $("#progressbar".concat(id)).reportprogress(percent);
+      console.log("add".concat(id));
+    }
+  }
+  
+  window.onload = function() {
+    
+    var obj = gon.your_int.length;
+    
+    for (var i = 0; i < obj; i++) {
+      console.log("<%= @projects %>")
+      console.log(gon.your_int)
+      updateProgress(i, gon.your_int[i]);  
+    }
+  };
+</script>

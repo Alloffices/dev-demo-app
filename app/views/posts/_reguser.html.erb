@@ -1,0 +1,25 @@
+<div class="user-list">
+	<ul>
+	<%= link_to(current_user) do %>
+		<li>
+			<img src="https://cdn.dribbble.com/users/59100/screenshots/2046896/bat_1x.png">
+		</li>
+		<li class="user_name current_user-bg"><%= current_user.name %></li>
+	<% end %>
+	<div style="clear:both;margin-bottom:.7em;"></div>
+
+	<% @users.each do |user| %>
+	    <%  if user != current_user %>    
+	    	<%= link_to(user) do %>
+			<li>
+				<img src="https://cdn.dribbble.com/users/59100/screenshots/2046896/bat_1x.png">
+			</li>
+			<li class="user_name"><%= user.name %></li>
+			<% end %>
+			<div style="clear:both;margin-bottom:.7em;"></div>
+		<% end %>
+	<% end %>
+	</ul>
+</div>
+
+<!--  = render 'devtools' %> -->

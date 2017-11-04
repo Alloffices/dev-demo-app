@@ -1,0 +1,40 @@
+<!-- <p id="notice"><%= notice %></p> -->
+<div class="header">
+  <img class="couple" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/6c61f518930619.562db11e69491.png">
+  <div class="container">
+  <h1><%= @user.name %></h1>
+  </div>
+</div>
+<section>
+	<%= render "backtrack" %>
+<div class="container">
+    <div class="card-wrapper">
+    <% @user.posts.each do |post| %>
+      <%= link_to(post) do %>
+        <div class="col-3">
+          <div class="card-post">
+            <div style="background:url(<%= post.imgr %>);" class="post-card-img">
+            </div>
+            <div class="post-card-content">
+              <div class="card-padding-content">
+                <%= link_to post.title.first(29), post, class: "post-card-title" %>
+                <br />
+                <%= link_to post.user.name, post.user %>
+                <br />
+                <%= link_to post.created_at.strftime("%b %d, %Y"), post, class: "post-card-time_date" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-4">
+		<% if current_user === @user %>
+			<%= link_to "Edit Profile", edit_user_registration_path(current_user), class: "btn-create-new" %>
+		<% else %>
+			<strong>You cant edit this profile.</strong>
+		<% end %>
+  </div>
+  </div>
+</section>

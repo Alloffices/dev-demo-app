@@ -1,0 +1,2 @@
+class Devtool < ApplicationRecord
+end

@@ -1,0 +1,53 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="register-container full-height sm-p-t-30">
+    <div class="d-flex justify-content-center flex-column full-height ">
+      <img src="https://i.imgur.com/QfiZyt9.png" alt="logo">
+      <h3>Deliver Projects On Time
+      </h3>
+      <p>
+        Monitor projects, track lines — all in a single, user-friendly web application.
+      </p>
+      <form id="form-register" class="p-t-15" role="form" action="index.html">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group form-group-default">
+              <label><%= f.label :name %></label>
+              <%= f.text_field :name, placeholder: "Joe Smith", class: "form-control", autofocus: true %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group form-group-default">
+              <label><%= f.label :email %></label>
+              <%= f.email_field :email, placeholder: "youremail@yourdigitalresource.com", class: "form-control", autofocus: true %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group form-group-default">
+              <label><%= f.label :password %></label>
+              <%= f.password_field :password, placeholder: "************", class: "form-control", autocomplete: "off"%>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group form-group-default">
+              <% if devise_mapping.rememberable? -%>
+                <div class="field">
+                  <%= f.label :remember_me %>
+                  <%= f.check_box :remember_me %>
+                </div>
+              <% end -%>
+            </div>
+          </div>
+        </div>
+        <div class="actions">
+          <%= f.submit "Log in", class: "btn btn-primary btn-cons m-t-10" %>
+        </div>
+        <!-- <= render "devise/shared/links" %> -->
+      </form>
+    </div>
+  </div>
+  <!-- END OVERLAY -->
+<% end %>

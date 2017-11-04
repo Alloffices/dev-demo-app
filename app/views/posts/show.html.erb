@@ -1,0 +1,30 @@
+<!-- <p id="notice"><%= notice %></p> -->
+<div class="header inner-relative-post">
+  <img class="couple" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/6c61f518930619.562db11e69491.png">
+  <div class="container inner-relative-post">
+  <h1><%= @post.title %></h1>
+  </div>
+</div>
+<section>
+<%= render "backtrack" %>
+  <div class="container">
+  	<div class="col-8">
+			<p><%= markdown @post.description %></p>
+		</div>
+	  <div class="col-4">
+		<% if user_signed_in? %>
+				<% if @post.user_id === current_user.id %>
+					<%= link_to 'New Post', new_post_path, class: "btn-create-new" %>
+					<%= link_to 'Edit', edit_post_path(@post), class: "btn-edit" %>
+				<% elsif %>
+					<%= link_to 'New Post', new_post_path, class: "btn-create-new" %>
+				<% end %>
+			<%= render "reguser" %>
+		<% else %>
+			<%= render "nonuser" %>
+		<% end %>
+	    <!-- <= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure you want to delete this alert?' }, class: "btn-destroy" %> -->
+
+	  </div>
+  </div>
+</section>

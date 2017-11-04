@@ -1,0 +1,50 @@
+<!-- <p id="notice"><%= notice %></p> -->
+<div class="header">
+  <img class="couple" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/6c61f518930619.562db11e69491.png">
+  <div class="container">
+  <h1>Dev. Corner</h1>
+  </div>
+</div>
+<section>
+  <div class="pagination-btn-index">
+    <%= will_paginate @posts %>
+  </div>
+  <div class="container">
+    <div class="card-wrapper">
+    <% @posts.each do |post| %>
+      <%= link_to(post) do %>
+        <div class="col-3">
+          <div class="card-post">
+            <div style="background:url(<%= post.imgr %>);" class="post-card-img">
+            </div>
+            <div class="post-card-content">
+              <div class="card-padding-content">
+                <%= link_to post.title.first(29), post, class: "post-card-title" %>
+                <br />
+                <%= link_to post.user.name, post.user %>
+                <br />
+                <%= link_to post.created_at.strftime("%b %d, %Y"), post, class: "post-card-time_date" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-4">
+    <% if user_signed_in?  %>
+      <!-- User must be signed in -->
+      <% if current_user.admin? %>
+        <%= link_to 'New Project', new_project_path, class: "btn-create-new" %>
+      <% end %>
+      <%= link_to 'New Post', new_post_path, class: "btn-create-new" %>
+      <%= render "reguser" %>
+    <% else %>
+      <!-- Must sign in --> 
+      <%= render "nonuser" %>
+    <% end %>
+  </div>
+
+  </div>
+</section>
+<br>

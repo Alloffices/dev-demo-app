@@ -1,0 +1,63 @@
+<!-- New Project Form -->
+<%= render 'form', project: @project %>
+
+<script>
+	$(function(){
+		// Dates init
+		$('#today').val(convertDateToString(new Date()));
+		$('#startDate').datepicker({
+		});
+		$('#endDate').datepicker({
+		});
+	});
+
+	// Update the progressbar
+	function updateProgress() {
+		var startDate = jQuery("#startDate").val();
+		var endDate = jQuery("#endDate").val();
+
+		if (startDate != "" && endDate != "") {
+			var minDate = new Date(convertStringToDate(startDate));
+			var today = new Date();
+			var maxDate = new Date(convertStringToDate(endDate));
+
+			var nbTotalDays = Math.floor((maxDate.getTime() - minDate.getTime()) / 86400000);
+			var nbPastDays = Math.floor((today.getTime() - minDate.getTime()) / 86400000);
+
+			var percent = nbPastDays / nbTotalDays * 100;
+
+			// Extreme cases
+			if (percent < 0) {
+				percent = 0;
+			} else if (percent > 100) {
+				percent = 100;
+			}
+		
+			$("#progressbar").reportprogress(percent);
+		}
+	}
+
+	// One day after
+	function addADay(date)
+	{
+		var actualDay = jQuery("#"+date).val();
+		if (actualDay != "") {
+			var nextDay = new Date(convertStringToDate(actualDay));
+			nextDay.setDate((nextDay.getDate()+1));
+			jQuery("#"+date).val(convertDateToString(nextDay));
+		}
+		updateProgress();
+	}
+
+	// One day before
+	function removeADay(date)
+	{
+		var actualDay = jQuery("#"+date).val();
+		if (actualDay != "") {
+			var prevDay = new Date(convertStringToDate(actualDay));
+			prevDay.setDate((prevDay.getDate()-1));
+			jQuery("#"+date).val(convertDateToString(prevDay));
+		}
+		updateProgress();
+	}
+</script>

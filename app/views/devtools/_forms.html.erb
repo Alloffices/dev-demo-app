@@ -1,0 +1,59 @@
+<!-- <p id="notice"><%= notice %></p> -->
+<div class="header">
+  <img class="couple" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/6c61f518930619.562db11e69491.png">
+  <div class="container">
+  <h1>Create Resource</h1>
+  </div>
+</div>
+<section>
+
+  <!-- Renders backtrack button -->
+  <!-- <= render "backtrack" %> -->
+  <!-- end  -->
+<%= render "backtrack" %>
+
+  <div class="container">
+    <div class="col-8">
+      <div class="container-inner-create-page">
+        <%= form_with(model: @devtool, local: true) do |form| %>
+          <% if @devtool.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(post.errors.count, "error") %> prohibited this devtool from being saved:</h2>
+
+              <ul>
+              <% @devtool.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="field">
+            <h2 class="form-labels">Enter Title</h2>
+            <p class="form-sub-txt">You can enter a maximum of 30 characters</p> 
+            <%= form.text_field :title, id: :devtool_text, :maxlength => 30, :size => 30, :class => "input_forms", placeholder: "HTML5, CSS, Javascript, Wordpress & Plugins", required: true  %>
+          </div>
+
+          <div class="field">
+            <h2 class="form-labels">Enter Icon</h2>
+            <p class="form-sub-txt">Reference Font Awesome Icon Directory <a class="form-ex-link" href="http://fontawesome.io/icons/" target="_blank">Icon List</a></p> 
+            <%= form.text_field :icon, id: :devtool_icon, :maxlength => 15, :size => 15, :class => "input_forms", placeholder: "fa-facebook", required: true  %>
+          </div>
+
+           <div class="field">
+            <h2 class="form-labels">Content Here</h2>
+            <p class="form-sub-txt">To add code refer to Redcarpets <a class="form-ex-link" href="https://caleorourke.gitbooks.io/redcarpet-syntax/content/cheatsheet/index.html" target="_blank">cheatsheet</a></p> 
+            <%= form.text_area :content, id: :devtool_content, :class => "input_forms input_txt_area", placeholder: "Add links to resources here...", required: true   %>
+          </div>
+
+          <div class="actions">
+            <%= form.submit %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-4">
+      <a class="btn-resources-edit" href="https://caleorourke.gitbooks.io/redcarpet-syntax/content/cheatsheet/index.html" target="_blank" rel="nofollow">Redcarpet</a>
+    </div>
+  </div>
+</section>

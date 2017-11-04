@@ -1,0 +1,23 @@
+<!-- <p id="notice"><%= notice %></p> -->
+<div class="header">
+  <img class="couple" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/6c61f518930619.562db11e69491.png">
+  <div class="container">
+  <h1><%= @devtool.title %></h1>
+  </div>
+</div>
+<section>
+<%= render "backtrack" %>
+
+<div class="container">
+  	<div class="col-8">
+			<p><%= markdown @devtool.content %></p>
+		</div>
+	  <div class="col-4">
+		<% if user_signed_in? %>
+		<% else %>
+		<% end %>
+	    <!-- <= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure you want to delete this alert?' }, class: "btn-destroy" %> -->
+
+	  </div>
+  </div>
+</section>

@@ -1,0 +1,5 @@
+<% @devtools.each do |devtool| %>
+	<%= link_to devtool, :class=>"btn-devtools" do %>
+		<i class="fa <%= devtool.icon %>" aria-hidden="true"></i>
+	<% end %>
+<% end %>

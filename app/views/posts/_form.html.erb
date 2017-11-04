@@ -1,0 +1,52 @@
+<section>
+
+  <!-- Renders backtrack button -->
+  <%= render "backtrack" %>
+  <!-- end  -->
+
+  <div class="container">
+    <div class="col-8">
+      <div class="container-inner-create-page">
+        <%= form_with(model: post, local: true) do |form| %>
+          <% if post.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+              <ul>
+              <% post.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="field">
+            <h2 class="form-labels">Enter Title</h2>
+            <p class="form-sub-txt">You can enter a maximum of 30 characters</p> 
+            <%= form.text_field :title, id: :post_title, :maxlength => 30, :size => 30, :class => "input_forms", placeholder: "Creating a Wordpress Development Environment", required: true  %>
+          </div>
+
+           <div class="field">
+            <h2 class="form-labels">Enter Image URL Address</h2>
+            <p class="form-sub-txt">Only images hosted externally can be used</p> 
+            <%= form.text_field :imgr, id: :post_title, :class => "input_forms", placeholder: "https://cdn.gribble.com/10149/1544666/drib2.png", required: true   %>
+          </div>
+
+          <div class="field">
+            <h2 class="form-labels">Enter Text or Code Below</h2>
+            <p class="form-sub-txt">To add code refer to Redcarpets <a class="form-ex-link" href="https://caleorourke.gitbooks.io/redcarpet-syntax/content/cheatsheet/index.html" target="_blank">cheatsheet</a></p> 
+            <%= form.text_area :description, id: :post_description, :class => "input_forms input_txt_area", placeholder: "Write or ode something here...", required: true   %>
+          </div>
+
+          <div class="actions">
+            <%= form.submit %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-4">
+      <p class="btn-resources-edit"><i class="fa fa-angle-down" aria-hidden="true"></i></p>
+      <a class="btn-resources-edit" href="https://caleorourke.gitbooks.io/redcarpet-syntax/content/cheatsheet/index.html" target="_blank" rel="nofollow">Redcarpet</a>
+    </div>
+  </div>
+</section>
