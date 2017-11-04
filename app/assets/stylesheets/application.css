@@ -14991,7 +14991,7 @@ code{
 .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
 
 .card.no-border.widget-loader-bar.m-b-10.m-r-10 {
-    width: 32.319% !important;
+    width: 100% !important;
     float:left;
 }
 .content {

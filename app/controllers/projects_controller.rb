@@ -2,13 +2,14 @@ require 'will_paginate/array'
 
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :authorize_admin
 
   # GET /projects
   # GET /projects.json
   def index
-    @projects = current_user.projects.sort_by {|i| i.start_date - i.end_date}.reverse!.paginate(:page => params[:page], :per_page => 10)
+    @projects = current_user.projects.all.sort_by {|i| i.start_date - i.end_date}.reverse!.paginate(:page => params[:page], :per_page => 10)
+    @projects = current_user.projects.all.sort_by {|i| i.start_date - i.end_date}.reverse!.paginate(:page => params[:page], :per_page => 10)
     @your_int = []
     current_user.projects.sort_by {|i| i.start_date - i.end_date}.reverse!.each_with_index do |project, index|
       @your_int << {id: index, start_date: project.start_date, end_date: project.end_date}
