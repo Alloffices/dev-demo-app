@@ -886,7 +886,7 @@ body.menu-pin .overlay .overlay-brand {
   flex-direction: column;
 }
 .horizontal-app-menu.fixed-header {
-  overflow: hidden;
+  overflow: scroll;
 }
 .horizontal-app-menu.fixed-header .header {
   position: relative;
