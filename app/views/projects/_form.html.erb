@@ -21,6 +21,11 @@
             <p class="form-sub-txt">You can enter a maximum of 30 characters</p> 
             <%= form.text_field :name, id: :project_name, :maxlength => 30, :size => 30, :class => "input_forms", placeholder: "Give your project a name", required: true %>
           </div>
+          <div class="field">
+            <h2 class="form-labels">Enter Link</h2>
+            <p class="form-sub-txt">Enter the basecamp progress project link</p> 
+            <%= form.text_field :plinks, id: :project_name, :class => "input_forms", placeholder: "Enter basecamp project progress link", required: true %>
+          </div>
            <div class="field">
             <h2 class="form-labels">Enter Project Date</h2>
             <p class="form-sub-txt">Today's date</p> 
