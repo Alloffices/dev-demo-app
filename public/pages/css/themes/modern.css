@@ -2572,10 +2572,11 @@ body.menu-pin .overlay .overlay-brand {
   z-index: 602;
 }
 .card-header a:not(.btn) {
-  color: #575a5d !important;
-  opacity: .4;
-  padding-top: 10px;
-  padding-bottom: 10px;
+    color: #000 !important;
+    opacity: .6;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 11px;
 }
 .card-header a:not(.btn).card-refresh {
   -webkit-transition: opacity 0.3s ease;
