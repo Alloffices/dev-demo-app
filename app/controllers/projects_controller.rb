@@ -9,8 +9,8 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all.order("created_at desc")
-    @projects = Project.all.sort_by {|i| i.start_date - i.end_date}.reverse!.paginate(:page => params[:page], :per_page => 20)
-    @projects = Project.all.sort_by {|i| i.start_date - i.end_date}.reverse!.paginate(:page => params[:page], :per_page => 20)
+    @projects = Project.all.sort_by {|i| i.start_date - i.end_date}.reverse!.paginate(:page => params[:page], :per_page => 100)
+    @projects = Project.all.sort_by {|i| i.start_date - i.end_date}.reverse!.paginate(:page => params[:page], :per_page => 100)
     @your_int = []
     Project.all.sort_by {|i| i.start_date - i.end_date}.reverse!.each_with_index do |project, index|
       @your_int << {id: index, start_date: project.start_date, end_date: project.end_date}
@@ -18,8 +18,8 @@ class ProjectsController < ApplicationController
     gon.your_int = @your_int
 
     if user_signed_in? 
-      @projects = Project.all.sort_by {|i| i.start_date - i.end_date}.reverse!.paginate(:page => params[:page], :per_page => 20)
-      @projects = Project.all.sort_by {|i| i.start_date - i.end_date}.reverse!.paginate(:page => params[:page], :per_page => 20)
+      @projects = Project.all.sort_by {|i| i.start_date - i.end_date}.reverse!.paginate(:page => params[:page], :per_page => 100)
+      @projects = Project.all.sort_by {|i| i.start_date - i.end_date}.reverse!.paginate(:page => params[:page], :per_page => 100)
       @your_int = []
       current_user.projects.sort_by {|i| i.start_date - i.end_date}.reverse!.each_with_index do |project, index|
         @your_int << {id: index, start_date: project.start_date, end_date: project.end_date}
@@ -92,7 +92,7 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :start_date, :end_date, :user_id)
+      params.require(:project).permit(:name, :start_date, :end_date, :link, :user_id)
     end
 
     def authorize_admin

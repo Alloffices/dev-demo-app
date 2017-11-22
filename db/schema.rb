@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171028093114) do
+ActiveRecord::Schema.define(version: 20171122035427) do
 
   create_table "devtools", force: :cascade do |t|
     t.text "icon"
