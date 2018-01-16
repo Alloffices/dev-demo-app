@@ -10,6 +10,6 @@ Rails.application.routes.draw do
 
 	root 'projects#index'
 	
-	get '*path' => redirect('/')
+	# get '*path' => redirect('/')
 end
 
