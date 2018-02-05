@@ -1,39 +1,251 @@
-<p id="notice"><%= notice %></p>
+<style>
+/* Radio */
 
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
-  <div id="progressbarForm">
-			<fieldset>		
-				<legend>Progress</legend>
-				<div id="progressbar"></div>
-			</fieldset>
+input[type="radio"] {
+    background-color: #ddd;
+    background-image: -webkit-linear-gradient(0deg, transparent 20%, hsla(0,0%,100%,.7), transparent 80%),
+                      -webkit-linear-gradient(90deg, transparent 20%, hsla(0,0%,100%,.7), transparent 80%);
+    border-radius: 10px;
+    box-shadow: inset 0 1px 1px hsla(0,0%,100%,.8),
+                0 0 0 1px hsla(0,0%,0%,.6),
+                0 2px 3px hsla(0,0%,0%,.6),
+                0 4px 3px hsla(0,0%,0%,.4),
+                0 6px 6px hsla(0,0%,0%,.2),
+                0 10px 6px hsla(0,0%,0%,.2);
+    cursor: pointer;
+    display: inline-block;
+    height: 15px;
+    margin-right: 15px;
+    position: relative;
+    width: 15px;
+    -webkit-appearance: none;
+}
+input[type="radio"]:after {
+    background-color: #444;
+    border-radius: 25px;
+    box-shadow: inset 0 0 0 1px hsla(0,0%,0%,.4),
+                0 1px 1px hsla(0,0%,100%,.8);
+    content: '';
+    display: block;
+    height: 7px;
+    left: 4px;
+    position: relative;
+    top: 4px;
+    width: 7px;
+}
+input[type="radio"]:checked:after {
+    background-color: #f66;
+    box-shadow: inset 0 0 0 1px hsla(0,0%,0%,.4),
+                inset 0 2px 2px hsla(0,0%,100%,.4),
+                0 1px 1px hsla(0,0%,100%,.8),
+                0 0 2px 2px hsla(0,70%,70%,.4);
+}​
+</style>
+
+<!-- START PAGE-CONTAINER -->
+<div class="page-container ">
+  <!-- START PAGE CONTENT WRAPPER -->
+  <div class="page-content-wrapper ">
+    <!-- START PAGE CONTENT -->
+    <div class="content ">
+      <!-- START JUMBOTRON -->
+      <div class="jumbotron">
+        <div class=" container p-l-0 p-r-0   container-fixed-lg sm-p-l-0 sm-p-r-0">
+          <div class="inner">
+            <!-- START BREADCRUMB -->
+            <div class="row">
+              <div class="col-xl-7 col-lg-6 ">
+                <!-- START card -->
+                <div class="card card-default">
+                  <div class="card-block text-center">
+                    <img class="image-responsive-height demo-mw-600" src="https://cdn.dribbble.com/users/110943/screenshots/3757963/01.jpg" alt="">
+                  </div>
+                </div>
+                <!-- END card -->
+              </div>
+              <div class="col-xl-5 col-lg-6 ">
+                <!-- START card -->
+                <div class="card card-transparent">
+                  <div class="card-header ">
+                    <div class="card-title">Active Website Build</div>
+                  </div>
+                  <div class="card-block">
+										<div class="col-md-12 d-flex" style="padding:0">
+				              <!-- START WIDGET widget_weekly_sales_card-->
+				              <div class="no-border widget-loader-bar m-b-10 m-r-10">
+				                <div class="container-xs-height full-height">
+				                  <div class="row-xs-height">
+				                    <div class="col-xs-height col-top">
+				                      <div class="p-t-10 p-b-30">
+				                        <h1 class="no-margin p-b-40"><%= @project.name %></h1>
+				                        <span class="small hint-text pull-left">Start: <%= @project.start_date.strftime("%m/%d/%Y") %></span>
+				                        <span class="pull-right small text-primary">Launch: <%= @project.end_date.strftime("%m/%d/%Y") %></span>
+				                      </div>
+				                    </div>
+				                  </div>
+				                  <div class="row-xs-height">
+				                    <div class="col-xs-height col-bottom">
+				                      <div id="progressbarForm">
+				                        <div id="progressbar">
+				                        </div>
+				                      </div>
+				                    </div>
+				                  </div>
+				                </div>
+				              </div>
+				              <!-- END WIDGET -->
+				            </div>
+
+                    <div>
+                    	<h5>Project Members</h5>
+                      <div class="profile-img-wrapper m-t-5 inline">
+                        <img width="35" height="35" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg" alt="">
+                        <div class="chat-status available">
+                        </div>
+                      </div>
+                      <div class="profile-img-wrapper m-t-5 m-l-10 inline">
+                        <img width="35" height="35" src="https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg" alt="">
+                        <div class="chat-status available">
+                        </div>
+                      </div>
+                      <div class="profile-img-wrapper m-t-5 m-l-10 inline">
+                        <img width="35" height="35" src="https://s3.amazonaws.com/uifaces/faces/twitter/tomaslau/128.jpg" alt="">
+                        <div class="chat-status available">
+                        </div>
+                      </div>
+                      <div style="clear:both;height:10px;"></div>
+                      <%= link_to 'Edit', edit_project_path(@project) %> |
+											<%= link_to 'Back', projects_path %>
+                    </div>
+                  </div>
+                </div>
+                <!-- END card -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END JUMBOTRON -->
+      <!-- START CONTAINER FLUID -->
+      <div class=" container    container-fixed-lg">
+        <!-- START card -->
+        <div class="card card-default">
+          <div class="card-header ">
+            <div class="card-title">Website Build Checklist
+            </div>
+            <div class="tools">
+              <a class="collapse" href="javascript:;"></a>
+              <a class="config" data-toggle="modal" href="#grid-config"></a>
+              <a class="reload" href="javascript:;"></a>
+              <a class="remove" href="javascript:;"></a>
+            </div>
+          </div>
+          <div class="card-block">
+            <div class="row">
+              <div class="col-lg-4">
+                <h5>Website 
+                  <span class="semi-bold">Build</span>
+                </h5>
+                <p>In this phase we will build out the structure of the home page, internal pages, setup contact forms and overall site map.</p>
+                <br>
+                <div class="checkbox check-primary">
+                  <input type="checkbox" value="1" id="checkbox1">
+                  <label for="checkbox1">Home Page Build</label>
+                </div>
+                <div class="checkbox check-primary">
+                  <input type="checkbox" value="1" id="checkbox2">
+                  <label for="checkbox2">Internal Services Pages</label>
+                </div>
+                <div class="checkbox check-primary">
+                  <input type="checkbox" value="1" id="checkbox3">
+                  <label for="checkbox3">Testimonials Page</label>
+                </div>
+                <div class="checkbox check-primary">
+                  <input type="checkbox" value="1" id="checkbox4">
+                  <label for="checkbox4">Contact Page</label>
+                </div>
+                <div class="checkbox check-primary">
+                  <input type="checkbox" value="1" id="checkbox5">
+                  <label for="checkbox5">Home Page Map</label>
+                </div>
+                <div class="checkbox check-primary">
+                  <input type="checkbox" value="1" id="checkbox6">
+                  <label for="checkbox6">About Page</label>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <h5>Website
+                  <span class="semi-bold">Content</span>
+                </h5>
+                <p>Content team will provide all of the content and images needed throughout the website. Content team will also review content to make sure that it was added correctly.</p>
+                <br>
+                <div class="checkbox  check-primary">
+                  <input type="checkbox" value="1" id="checkbox7">
+                  <label for="checkbox7">Added Content</label>
+                </div>
+                <div class="checkbox check-primary">
+                  <input type="checkbox" value="1" id="checkbox8">
+                  <label for="checkbox8">Added Images</label>
+                </div>
+                <div class="checkbox check-primary">
+                  <input type="checkbox" value="1" id="checkbox9">
+                  <label for="checkbox9">Completed Content Revisions</label>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <h5>State
+                  <span class="semi-bold">Options</span>
+                </h5>
+                <p>These act the same way as normal HTML check boxes. Here are some states that</p>
+                <br>
+                <div class="checkbox check-success">
+                  <input type="checkbox" disabled="disabled" value="check1" name="check" id="check1">
+                  <label for="check1">Checkbox No. 1</label>
+                  <br>
+                  <input type="checkbox" disabled="disabled" checked="checked" value="check2" name="check" id="check2">
+                  <label for="check2">Checkbox No. 2</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END card -->
+      </div>
+      <!-- END CONTAINER FLUID -->
+
     </div>
-<p>
-  <strong>Start date:</strong>
-  <%= @project.start_date.strftime("%m/%d/%Y") %>
-</p>
+    <!-- END Search Result Item !-->
+	</div>
 
-<p>
-  <strong>End date:</strong>
-  <%= @project.end_date.strftime("%m/%d/%Y") %>
-</p>
+<%= form_with(model: @project, local: true) do |form| %>
+	<div>
+		<div id="info_false">
+			<%= label :access_rights, "Pending", value: false %>
+			<%= form.radio_button :build_one, false, :checked => true, :value => false, id: "build_one_1" %>
+		</div>
+		<div id="info_true">
+			<%= label :access_rights, "Completed", value: true %>
+			<%= form.radio_button :build_one, true, :value => true, id: "build_one_2" %>
+		</div>
+	</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @project.user.name %>
-</p>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
-
+	<div class="actions">
+	<%= form.submit id: "build_one", :style => "visibility:hidden;", data: { confirm: "Are you sure?"} %>
+	</div>
+<% end %>
+<div style="clear:both;"></div>
 
 <script>
+
 	// Update the progressbar
   
   $( document ).ready(function() {
-  
+	$('#build_one_1').click(function() {
+	    $('#build_one').click(); 
+	});
+	$('#build_one_2').click(function() {
+	    $('#build_one').click(); 
+	});
 	function updateProgress() {
 		var startDate = "<%= @project.start_date %>";
 		var endDate = "<%= @project.end_date %>";

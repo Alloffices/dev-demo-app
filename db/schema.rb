@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171122041703) do
+ActiveRecord::Schema.define(version: 20180204034212) do
 
   create_table "devtools", force: :cascade do |t|
     t.text "icon"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20171122041703) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "plinks"
+    t.boolean "build_one"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 

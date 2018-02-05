@@ -2,13 +2,14 @@ require 'will_paginate/array'
 
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :authorize_admin
 
   # GET /projects
   # GET /projects.json
   def index
     @projects = Project.all.order("created_at desc")
+
     @projects = Project.all.sort_by {|i| i.start_date - i.end_date}.reverse!.paginate(:page => params[:page], :per_page => 100)
     @projects = Project.all.sort_by {|i| i.start_date - i.end_date}.reverse!.paginate(:page => params[:page], :per_page => 100)
     @your_int = []
@@ -74,6 +75,15 @@ class ProjectsController < ApplicationController
     end
   end
 
+  # Adds Project Collaborators
+  def addfriend
+    @project = Project.find(params[:id])
+    @project.users << User.find(params[:user_id])
+    respond_to do |format|
+      format.html { redirect_to project, :notice => 'Added.' }
+    end
+  end
+
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
@@ -92,7 +102,7 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :start_date, :end_date, :plinks, :user_id)
+      params.require(:project).permit(:name, :start_date, :end_date, :plinks, :build_one, :user_id)
     end
 
     def authorize_admin

@@ -62,7 +62,7 @@
                   <div class="row-xs-height">
                     <div class="col-xs-height col-top">
                       <div class="p-l-20 p-t-50 p-b-40 p-r-20">
-                        <h3 class="no-margin p-b-5"><%= project.name %></h3>
+                        <h3 class="no-margin p-b-5"><%= link_to project.name, project %></h3>
                         <span class="small hint-text pull-left">Start: <%= project.start_date.strftime("%b %d, %Y") %></span>
                         <span class="pull-right small text-primary">Launch: <%= project.end_date.strftime("%b %d, %Y") %></span>
                       </div>

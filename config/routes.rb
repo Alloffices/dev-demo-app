@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 	resources :users
 
 
-	resources :projects
+	resources :projects do
+	  member do
+	      get :addfriend
+	  end
+	end
 	resources :posts
 	resources :devtools
 
