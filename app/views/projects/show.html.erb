@@ -138,10 +138,13 @@ input[type="radio"]:checked:after {
                         <div class="chat-status available">
                         </div>
                       </div>
+                      <% if user_signed_in?%>
                       <div style="clear:both;height:10px;"></div>
                       <%= link_to 'Edit', edit_project_path(@project) %> |
-											<%= link_to 'Back', projects_path %>
+                      <% end %>
+                      <%= link_to 'Back', projects_path %>
                     </div>
+
                   </div>
                 </div>
                 <!-- END card -->
