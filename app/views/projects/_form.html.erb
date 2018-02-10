@@ -26,14 +26,6 @@
             <p class="form-sub-txt">Enter the basecamp progress project link</p> 
             <%= form.text_field :plinks, id: :project_name, :class => "input_forms", placeholder: "Enter basecamp project progress link", required: true %>
           </div>
-          <div>
-            <%= label :build_one, "Read Only", value: false %>
-            <%= form.radio_button :build_one, false, :checked => true, :value => false %>
-          </div>
-          <div>
-            <%= label :build_one, "Read and Write", value: true %>
-            <%= form.radio_button :build_one, true, :value => true %>
-          </div>
           <!-- button to addfriend method here -->
            <div class="field">
             <h2 class="form-labels">Enter Project Date</h2>

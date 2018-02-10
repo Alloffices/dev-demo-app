@@ -177,7 +177,7 @@ input[type="radio"]:checked:after {
                 <p>In this phase we will build out the structure of the home page, internal pages, setup contact forms and overall site map.</p>
                 <br>
                 <div class="checkbox check-primary">
-                  <input type="checkbox" value="1" id="checkbox2" class="testing" onclick="ENABLE()">
+                  <input type="checkbox" value="1" id="checkbox2" class="testing">
                   <label for="checkbox2">Internal Services Pages</label>
                   <%= form_with(model: @project, local: true) do |form| %>
                     <div>
@@ -189,6 +189,21 @@ input[type="radio"]:checked:after {
                     <%= form.submit id: "build_one", :style => "visibility:hidden;", data: { confirm: "Are you sure?"} %>
                   <% end %>
                 </div>
+
+                <div class="checkbox check-primary">
+                  <input type="checkbox" value="1" id="checkbox3" class="testing_2">
+                  <label for="checkbox3">Testimonials</label>
+                  <%= form_with(model: @project, local: true) do |form| %>
+                    <div>
+                      <div id="info_true">
+                        <%= form.radio_button :build_two, false, :checked => true, :value => false, id: "build_two_2_1", :style => "visibility:hidden"  %>
+                        <%= form.radio_button :build_two, true, :value => true, id: "build_two_2_2", :style => "visibility:hidden" %>
+                      </div>
+                    </div>
+                    <%= form.submit id: "build_two", :style => "visibility:hidden;", data: { confirm: "Are you sure?"} %>
+                  <% end %>
+                </div>
+
                 <div class="checkbox check-primary">
                   <input type="checkbox" value="1" id="checkbox3">
                   <label for="checkbox3">Testimonials Page</label>
@@ -321,21 +336,36 @@ input[type="radio"]:checked:after {
 	// Update the progressbar
   
   $( document ).ready(function() {
-	$('#build_one_1').click(function() {
-	    $('#build_one').click(); 
-	});
-    $('.testing').click(function() {
-      $('input[type="radio"]').not(':checked').prop("checked", true);
-      $('#build_one').click(); 
+  // Check Box 1
+  $('.testing').click(function() {
+    $('input[type="radio"]').not(':checked').prop("checked", true);
+    $('#build_one').click(); 
   });
+
   if ($('input#build_one_2').is(':checked')) {
     var isChecked= document.getElementById('checkbox2').checked;
     if(isChecked){ //checked
-      alert('Not Checked')
+      console.log('Not Checked')
     }else{ //unchecked
       document.getElementById("checkbox2").checked=true;
     }
   }
+
+  // Check Box 2
+  $('.testing_2').click(function() {
+    $('input[type="radio"]').not(':checked').prop("checked", true);
+    $('#build_two').click(); 
+  });
+
+  if ($('input#build_two_2_2').is(':checked')) {
+    var isChecked= document.getElementById('checkbox3').checked;
+    if(isChecked){ //checked
+      console.log('Not Checked')
+    }else{ //unchecked
+      document.getElementById("checkbox3").checked=true;
+    }
+  }
+
 	function updateProgress() {
 		var startDate = "<%= @project.start_date %>";
 		var endDate = "<%= @project.end_date %>";
