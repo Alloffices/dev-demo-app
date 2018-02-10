@@ -2,7 +2,7 @@ require 'will_paginate/array'
 
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :update]
   before_action :authorize_admin
 
   # GET /projects
