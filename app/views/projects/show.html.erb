@@ -1,6 +1,6 @@
 <style>
 /* Radio */
-
+/*
 input[type="radio"] {
     background-color: #ddd;
     background-image: -webkit-linear-gradient(0deg, transparent 20%, hsla(0,0%,100%,.7), transparent 80%),
@@ -39,6 +39,31 @@ input[type="radio"]:checked:after {
                 inset 0 2px 2px hsla(0,0%,100%,.4),
                 0 1px 1px hsla(0,0%,100%,.8),
                 0 0 2px 2px hsla(0,70%,70%,.4);
+}​*/
+input[type="radio"] {
+    background-color: #eee;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+    height: 15px;
+    margin-right: 15px;
+    position: relative;
+    width: 15px;
+    -webkit-appearance: none;
+}
+input[type="radio"]:after {
+    background-color: #1e2022;
+    border-radius: 25px;
+    content: '';
+    display: block;
+    height: 7px;
+    left: 4px;
+    position: relative;
+    top: 4px;
+    width: 7px;
+}
+input[type="radio"]:checked:after {
+    background-color: #3ac569;
 }​
 </style>
 
@@ -66,7 +91,7 @@ input[type="radio"]:checked:after {
               <div class="col-xl-5 col-lg-6 ">
                 <!-- START card -->
                 <div class="card card-transparent">
-                  <div class="card-header ">
+                  <div class="card-header">
                     <div class="card-title">Active Website Build</div>
                   </div>
                   <div class="card-block">
@@ -76,8 +101,8 @@ input[type="radio"]:checked:after {
 				                <div class="container-xs-height full-height">
 				                  <div class="row-xs-height">
 				                    <div class="col-xs-height col-top">
-				                      <div class="p-t-10 p-b-30">
-				                        <h1 class="no-margin p-b-40"><%= @project.name %></h1>
+				                      <div class="p-t-5 p-b-30">
+				                        <h1 class="no-margin p-b-20"><%= @project.name %></h1>
 				                        <span class="small hint-text pull-left">Start: <%= @project.start_date.strftime("%m/%d/%Y") %></span>
 				                        <span class="pull-right small text-primary">Launch: <%= @project.end_date.strftime("%m/%d/%Y") %></span>
 				                      </div>
@@ -149,12 +174,17 @@ input[type="radio"]:checked:after {
                 <p>In this phase we will build out the structure of the home page, internal pages, setup contact forms and overall site map.</p>
                 <br>
                 <div class="checkbox check-primary">
-                  <input type="checkbox" value="1" id="checkbox1">
-                  <label for="checkbox1">Home Page Build</label>
-                </div>
-                <div class="checkbox check-primary">
-                  <input type="checkbox" value="1" id="checkbox2">
+                  <input type="checkbox" value="1" id="checkbox2" class="testing" onclick="ENABLE()">
                   <label for="checkbox2">Internal Services Pages</label>
+                  <%= form_with(model: @project, local: true) do |form| %>
+                    <div>
+                      <div id="info_true">
+                        <%= form.radio_button :build_one, false, :checked => true, :value => false, id: "build_one_1", :style => "visibility:hidden"  %>
+                        <%= form.radio_button :build_one, true, :value => true, id: "build_one_2", :style => "visibility:hidden" %>
+                      </div>
+                    </div>
+                    <%= form.submit id: "build_one", :style => "visibility:hidden;", data: { confirm: "Are you sure?"} %>
+                  <% end %>
                 </div>
                 <div class="checkbox check-primary">
                   <input type="checkbox" value="1" id="checkbox3">
@@ -193,17 +223,77 @@ input[type="radio"]:checked:after {
                 </div>
               </div>
               <div class="col-lg-4">
-                <h5>State
-                  <span class="semi-bold">Options</span>
+                <h5>Pre-Launch
+                  <span class="semi-bold">Checklist</span>
                 </h5>
                 <p>These act the same way as normal HTML check boxes. Here are some states that</p>
                 <br>
-                <div class="checkbox check-success">
-                  <input type="checkbox" disabled="disabled" value="check1" name="check" id="check1">
-                  <label for="check1">Checkbox No. 1</label>
-                  <br>
-                  <input type="checkbox" disabled="disabled" checked="checked" value="check2" name="check" id="check2">
-                  <label for="check2">Checkbox No. 2</label>
+                <div class="checkbox check-primary">
+                  <input type="checkbox" value="2" id="checkbox10">
+                  <label for="checkbox10">Mega Menu</label>
+                </div>
+                <div class="checkbox check-primary">
+                  <input type="checkbox" value="1" id="checkbox11">
+                  <label for="checkbox11">Interior Pages (Nicely Designed)</label>
+                </div>
+                <div class="checkbox check-primary">
+                  <input type="checkbox" value="1" id="checkbox12">
+                  <label for="checkbox12">Form Logging (Add Plugin)</label>
+                </div>
+                <div class="checkbox check-primary">
+                  <input type="checkbox" value="1" id="checkbox13">
+                  <label for="checkbox13">ADA Compliance (Dental Websites Only)</label>
+                </div>
+                <div class="checkbox check-primary">
+                  <input type="checkbox" value="1" id="checkbox14">
+                  <label for="checkbox14">Our info at the bottom (Digital Resource)</label>
+                </div>
+                <div class="checkbox check-primary">
+                  <input type="checkbox" value="1" id="checkbox15">
+                  <label for="checkbox15">Yoast SEO (Add Plugin)</label>
+                </div>
+                <div class="checkbox check-primary">
+                  <input type="checkbox" value="1" id="checkbox16">
+                  <label for="checkbox16">Forms (Set wth Correct Email)</label>
+                </div>
+                <div class="checkbox check-primary">
+                  <input type="checkbox" value="1" id="checkbox17">
+                  <label for="checkbox17">Responsive (Mobile, Ipad, Mobile)</label>
+                </div>
+                <div class="checkbox check-primary">
+                  <input type="checkbox" value="1" id="checkbox18">
+                  <label for="checkbox18">Page Speed (GTMetrix, Pingdom, Google Page Speed)</label>
+                </div>
+                <div class="checkbox check-primary">
+                  <input type="checkbox" value="1" id="checkbox19">
+                  <label for="checkbox19">Remove all the demo pages from new site</label>
+                </div>
+                <div class="checkbox check-primary">
+                  <input type="checkbox" value="1" id="checkbox20">
+                  <label for="checkbox20">Make sure WordFence is installed</label>
+                </div>
+                <div class="checkbox check-primary">
+                  <input type="checkbox" value="1" id="checkbox21">
+                  <label for="checkbox21">Clickable phone numbers, maps and addresses are correct</label>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <h5>Website
+                  <span class="semi-bold">Content</span>
+                </h5>
+                <p>Content team will provide all of the content and images needed throughout the website. Content team will also review content to make sure that it was added correctly.</p>
+                <br>
+                <div class="checkbox  check-primary">
+                  <input type="checkbox" value="1" id="checkbox7">
+                  <label for="checkbox7">Added Content</label>
+                </div>
+                <div class="checkbox check-primary">
+                  <input type="checkbox" value="1" id="checkbox8">
+                  <label for="checkbox8">Added Images</label>
+                </div>
+                <div class="checkbox check-primary">
+                  <input type="checkbox" value="1" id="checkbox9">
+                  <label for="checkbox9"Completed Content Revisions</label>
                 </div>
               </div>
             </div>
@@ -216,26 +306,14 @@ input[type="radio"]:checked:after {
     </div>
     <!-- END Search Result Item !-->
 	</div>
-
-<%= form_with(model: @project, local: true) do |form| %>
-	<div>
-		<div id="info_false">
-			<%= label :access_rights, "Pending", value: false %>
-			<%= form.radio_button :build_one, false, :checked => true, :value => false, id: "build_one_1" %>
-		</div>
-		<div id="info_true">
-			<%= label :access_rights, "Completed", value: true %>
-			<%= form.radio_button :build_one, true, :value => true, id: "build_one_2" %>
-		</div>
-	</div>
-
-	<div class="actions">
-	<%= form.submit id: "build_one", :style => "visibility:hidden;", data: { confirm: "Are you sure?"} %>
-	</div>
-<% end %>
 <div style="clear:both;"></div>
 
 <script>
+
+  $('#toggler').click(function() {
+      $('input[type="radio"]').not(':checked').prop("checked", true);
+      $('#div1').html($('input[type="radio"]:checked').val())
+  });
 
 	// Update the progressbar
   
@@ -243,9 +321,18 @@ input[type="radio"]:checked:after {
 	$('#build_one_1').click(function() {
 	    $('#build_one').click(); 
 	});
-	$('#build_one_2').click(function() {
-	    $('#build_one').click(); 
-	});
+    $('.testing').click(function() {
+      $('input[type="radio"]').not(':checked').prop("checked", true);
+      $('#build_one').click(); 
+  });
+  if ($('input#build_one_2').is(':checked')) {
+    var isChecked= document.getElementById('checkbox2').checked;
+    if(isChecked){ //checked
+      alert('Not Checked')
+    }else{ //unchecked
+      document.getElementById("checkbox2").checked=true;
+    }
+  }
 	function updateProgress() {
 		var startDate = "<%= @project.start_date %>";
 		var endDate = "<%= @project.end_date %>";

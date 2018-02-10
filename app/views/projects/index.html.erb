@@ -1,6 +1,4 @@
 <p id="notice"><%= notice %></p>
-
-
 <!-- START CONTAINER FLUID -->
 <div class=" container container-fixed-lg">
   <!-- START card -->
@@ -62,7 +60,9 @@
                   <div class="row-xs-height">
                     <div class="col-xs-height col-top">
                       <div class="p-l-20 p-t-50 p-b-40 p-r-20">
-                        <h3 class="no-margin p-b-5"><%= link_to project.name, project %></h3>
+                        <%= link_to project_path(project) do %>
+                        <h3 class="no-margin p-b-5"><%= project.name %></h3>
+                        <% end %>
                         <span class="small hint-text pull-left">Start: <%= project.start_date.strftime("%b %d, %Y") %></span>
                         <span class="pull-right small text-primary">Launch: <%= project.end_date.strftime("%b %d, %Y") %></span>
                       </div>
@@ -91,8 +91,7 @@
   <!-- END PAGE CONTENT -->
 </div>
 <!-- END CONTAINER FLUID -->
-
-<script>
+<script type="text/javascript" async>
   // Update the progressbar
   function updateProgress(id, obj) {
     var startDate = obj.start_date;
