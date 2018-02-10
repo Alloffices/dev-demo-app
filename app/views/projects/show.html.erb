@@ -176,42 +176,58 @@ input[type="radio"]:checked:after {
                 </h5>
                 <p>In this phase we will build out the structure of the home page, internal pages, setup contact forms and overall site map.</p>
                 <br>
-                <div class="checkbox check-primary">
+
+                <!-- Checkbox One ////////////////////////////////////////////////////// -->
+                <div class="checkbox check-primary relative-for-checkboxes">
                   <input type="checkbox" value="1" id="checkbox2" class="testing">
                   <label for="checkbox2">Internal Services Pages</label>
-                  <%= form_with(model: @project, local: true) do |form| %>
-                    <div>
-                      <div id="info_true">
-                        <%= form.radio_button :build_one, false, :checked => true, :value => false, id: "build_one_1", :style => "visibility:hidden"  %>
-                        <%= form.radio_button :build_one, true, :value => true, id: "build_one_2", :style => "visibility:hidden" %>
+                  <div class="check-boxes-todo-list">
+                    <%= form_with(model: @project, local: true) do |form| %>
+                      <div>
+                        <div id="info_true">
+                          <%= form.radio_button :build_one, false, :checked => true, :value => false, id: "build_one_1", :style => "visibility:hidden"  %>
+                          <%= form.radio_button :build_one, true, :value => true, id: "build_one_2", :style => "visibility:hidden" %>
+                        </div>
                       </div>
-                    </div>
-                    <%= form.submit id: "build_one", :style => "visibility:hidden;", data: { confirm: "Are you sure?"} %>
-                  <% end %>
+                      <%= form.submit id: "build_one", :style => "visibility:hidden;", data: { confirm: "Are you sure?"} %>
+                    <% end %>
+                  </div>
                 </div>
 
-                <div class="checkbox check-primary">
+                <!-- Checkbox Two ////////////////////////////////////////////////////// -->
+                <div class="checkbox check-primary relative-for-checkboxes">
                   <input type="checkbox" value="1" id="checkbox3" class="testing_2">
                   <label for="checkbox3">Testimonials</label>
-                  <%= form_with(model: @project, local: true) do |form| %>
-                    <div>
-                      <div id="info_true">
-                        <%= form.radio_button :build_two, false, :checked => true, :value => false, id: "build_two_2_1", :style => "visibility:hidden"  %>
-                        <%= form.radio_button :build_two, true, :value => true, id: "build_two_2_2", :style => "visibility:hidden" %>
+                  <div class="check-boxes-todo-list">
+                    <%= form_with(model: @project, local: true) do |form| %>
+                      <div>
+                        <div id="info_true">
+                          <%= form.radio_button :build_two, false, :checked => true, :value => false, id: "build_two_2_1", :style => "visibility:hidden"  %>
+                          <%= form.radio_button :build_two, true, :value => true, id: "build_two_2_2", :style => "visibility:hidden" %>
+                        </div>
                       </div>
-                    </div>
-                    <%= form.submit id: "build_two", :style => "visibility:hidden;", data: { confirm: "Are you sure?"} %>
-                  <% end %>
+                      <%= form.submit id: "build_two", :style => "visibility:hidden;", data: { confirm: "Are you sure?"} %>
+                    <% end %>
+                  </div>
                 </div>
 
-                <div class="checkbox check-primary">
-                  <input type="checkbox" value="1" id="checkbox3">
-                  <label for="checkbox3">Testimonials Page</label>
+                <!-- Checkbox Three ////////////////////////////////////////////////////// -->
+                <div class="checkbox check-primary relative-for-checkboxes">
+                  <input type="checkbox" value="1" id="checkbox4" class="testing_3">
+                  <label for="checkbox4">Testimonials</label>
+                  <div class="check-boxes-todo-list">
+                    <%= form_with(model: @project, local: true) do |form| %>
+                      <div>
+                        <div id="info_true">
+                          <%= form.radio_button :build_three, false, :checked => true, :value => false, id: "build_three_3_1", :style => "visibility:hidden"  %>
+                          <%= form.radio_button :build_three, true, :value => true, id: "build_three_3_2", :style => "visibility:hidden" %>
+                        </div>
+                      </div>
+                      <%= form.submit id: "build_three", :style => "visibility:hidden;", data: { confirm: "Are you sure?"} %>
+                    <% end %>
+                  </div>
                 </div>
-                <div class="checkbox check-primary">
-                  <input type="checkbox" value="1" id="checkbox4">
-                  <label for="checkbox4">Contact Page</label>
-                </div>
+                
                 <div class="checkbox check-primary">
                   <input type="checkbox" value="1" id="checkbox5">
                   <label for="checkbox5">Home Page Map</label>
@@ -336,7 +352,8 @@ input[type="radio"]:checked:after {
 	// Update the progressbar
   
   $( document ).ready(function() {
-  // Check Box 1
+
+  // Check Box 1 -------------------------------------------
   $('.testing').click(function() {
     $('input[type="radio"]').not(':checked').prop("checked", true);
     $('#build_one').click(); 
@@ -351,7 +368,7 @@ input[type="radio"]:checked:after {
     }
   }
 
-  // Check Box 2
+  // Check Box 2 -------------------------------------------
   $('.testing_2').click(function() {
     $('input[type="radio"]').not(':checked').prop("checked", true);
     $('#build_two').click(); 
@@ -363,6 +380,21 @@ input[type="radio"]:checked:after {
       console.log('Not Checked')
     }else{ //unchecked
       document.getElementById("checkbox3").checked=true;
+    }
+  }
+
+  // Check Box 3 -------------------------------------------
+  $('.testing_3').click(function() {
+    $('input[type="radio"]').not(':checked').prop("checked", true);
+    $('#build_three').click(); 
+  });
+
+  if ($('input#build_three_3_2').is(':checked')) {
+    var isChecked= document.getElementById('checkbox4').checked;
+    if(isChecked){ //checked
+      console.log('Not Checked')
+    }else{ //unchecked
+      document.getElementById("checkbox4").checked=true;
     }
   }
 
