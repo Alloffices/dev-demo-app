@@ -176,66 +176,7 @@ input[type="radio"]:checked:after {
                 </h5>
                 <p>In this phase we will build out the structure of the home page, internal pages, setup contact forms and overall site map.</p>
                 <br>
-
-                <!-- Checkbox One ////////////////////////////////////////////////////// -->
-                <div class="checkbox check-primary relative-for-checkboxes">
-                  <input type="checkbox" value="1" id="checkbox2" class="testing">
-                  <label for="checkbox2">Internal Services Pages (√)</label>
-                  <div class="check-boxes-todo-list">
-                    <%= form_with(model: @project, local: true) do |form| %>
-                      <div>
-                        <div id="info_true">
-                          <%= form.radio_button :build_one, false, :checked => true, :value => false, id: "build_one_1", :style => "visibility:hidden"  %>
-                          <%= form.radio_button :build_one, true, :value => true, id: "build_one_2", :style => "visibility:hidden" %>
-                        </div>
-                      </div>
-                      <%= form.submit id: "build_one", :style => "visibility:hidden;", data: { confirm: "Are you sure?"} %>
-                    <% end %>
-                  </div>
-                </div>
-
-                <!-- Checkbox Two ////////////////////////////////////////////////////// -->
-                <div class="checkbox check-primary relative-for-checkboxes">
-                  <input type="checkbox" value="1" id="checkbox3" class="testing_2">
-                  <label for="checkbox3">Testimonials (√)</label>
-                  <div class="check-boxes-todo-list">
-                    <%= form_with(model: @project, local: true) do |form| %>
-                      <div>
-                        <div id="info_true">
-                          <%= form.radio_button :build_two, false, :checked => true, :value => false, id: "build_two_2_1", :style => "visibility:hidden"  %>
-                          <%= form.radio_button :build_two, true, :value => true, id: "build_two_2_2", :style => "visibility:hidden" %>
-                        </div>
-                      </div>
-                      <%= form.submit id: "build_two", :style => "visibility:hidden;", data: { confirm: "Are you sure?"} %>
-                    <% end %>
-                  </div>
-                </div>
-
-                <!-- Checkbox Three ////////////////////////////////////////////////////// -->
-                <div class="checkbox check-primary relative-for-checkboxes">
-                  <input type="checkbox" value="1" id="checkbox4" class="testing_3">
-                  <label for="checkbox4">Testimonials (√)</label>
-                  <div class="check-boxes-todo-list">
-                    <%= form_with(model: @project, local: true) do |form| %>
-                      <div>
-                        <div id="info_true">
-                          <%= form.radio_button :build_three, false, :checked => true, :value => false, id: "build_three_3_1", :style => "visibility:hidden"  %>
-                          <%= form.radio_button :build_three, true, :value => true, id: "build_three_3_2", :style => "visibility:hidden" %>
-                        </div>
-                      </div>
-                      <%= form.submit id: "build_three", :style => "visibility:hidden;", data: { confirm: "Are you sure?"} %>
-                    <% end %>
-                  </div>
-                </div>
-
-                <div class="checkbox check-primary">
-                  <input type="checkbox" value="1" id="checkbox5">
-                  <label for="checkbox5">Home Page Map</label>
-                </div>
-                <div class="checkbox check-primary">
-                  <input type="checkbox" value="1" id="checkbox6">
-                  <label for="checkbox6">About Page</label>
-                </div>
+                <%= render 'checkboxes' %>
               </div>
               <div class="col-lg-4">
                 <h5>Website
@@ -395,6 +336,96 @@ input[type="radio"]:checked:after {
       console.log('Not Checked')
     }else{ //unchecked
       document.getElementById("checkbox4").checked=true;
+    }
+  }
+
+  // Check Box 4 -------------------------------------------
+  $('.testing_4').click(function() {
+    $('input[type="radio"]').not(':checked').prop("checked", true);
+    $('#build_four').click(); 
+  });
+
+  if ($('input#build_four_4_2').is(':checked')) {
+    var isChecked= document.getElementById('checkbox5').checked;
+    if(isChecked){ //checked
+      console.log('Not Checked')
+    }else{ //unchecked
+      document.getElementById("checkbox5").checked=true;
+    }
+  }
+
+  // Check Box 5 -------------------------------------------
+  $('.testing_5').click(function() {
+    $('input[type="radio"]').not(':checked').prop("checked", true);
+    $('#build_five').click(); 
+  });
+
+  if ($('input#build_five_5_2').is(':checked')) {
+    var isChecked= document.getElementById('checkbox6').checked;
+    if(isChecked){ //checked
+      console.log('Not Checked')
+    }else{ //unchecked
+      document.getElementById("checkbox6").checked=true;
+    }
+  }
+
+  // Check Box 6 -------------------------------------------
+  $('.testing_6').click(function() {
+    $('input[type="radio"]').not(':checked').prop("checked", true);
+    $('#build_six').click(); 
+  });
+
+  if ($('input#build_six_6_2').is(':checked')) {
+    var isChecked= document.getElementById('checkbox7').checked;
+    if(isChecked){ //checked
+      console.log('Not Checked')
+    }else{ //unchecked
+      document.getElementById("checkbox7").checked=true;
+    }
+  }
+
+  // Check Box 7 -------------------------------------------
+  $('.testing_7').click(function() {
+    $('input[type="radio"]').not(':checked').prop("checked", true);
+    $('#build_seven').click(); 
+  });
+
+  if ($('input#build_seven_7_2').is(':checked')) {
+    var isChecked= document.getElementById('checkbox8').checked;
+    if(isChecked){ //checked
+      console.log('Not Checked')
+    }else{ //unchecked
+      document.getElementById("checkbox8").checked=true;
+    }
+  }
+
+  // Check Box 8 -------------------------------------------
+  $('.testing_8').click(function() {
+    $('input[type="radio"]').not(':checked').prop("checked", true);
+    $('#build_eight').click(); 
+  });
+
+  if ($('input#build_eight_8_2').is(':checked')) {
+    var isChecked= document.getElementById('checkbox9').checked;
+    if(isChecked){ //checked
+      console.log('Not Checked')
+    }else{ //unchecked
+      document.getElementById("checkbox9").checked=true;
+    }
+  }
+
+  // Check Box 9 -------------------------------------------
+  $('.testing_9').click(function() {
+    $('input[type="radio"]').not(':checked').prop("checked", true);
+    $('#build_nine').click(); 
+  });
+
+  if ($('input#build_nine_9_2').is(':checked')) {
+    var isChecked= document.getElementById('checkbox10').checked;
+    if(isChecked){ //checked
+      console.log('Not Checked')
+    }else{ //unchecked
+      document.getElementById("checkbox10").checked=true;
     }
   }
 
