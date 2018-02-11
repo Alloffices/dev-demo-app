@@ -184,18 +184,7 @@ input[type="radio"]:checked:after {
                 </h5>
                 <p>Content team will provide all of the content and images needed throughout the website. Content team will also review content to make sure that it was added correctly.</p>
                 <br>
-                <div class="checkbox  check-primary">
-                  <input type="checkbox" value="1" id="checkbox7">
-                  <label for="checkbox7">Added Content</label>
-                </div>
-                <div class="checkbox check-primary">
-                  <input type="checkbox" value="1" id="checkbox8">
-                  <label for="checkbox8">Added Images</label>
-                </div>
-                <div class="checkbox check-primary">
-                  <input type="checkbox" value="1" id="checkbox9">
-                  <label for="checkbox9">Completed Content Revisions</label>
-                </div>
+                <%= render 'contentcheckboxes' %>
               </div>
               <div class="col-lg-4">
                 <h5>Pre-Launch
@@ -428,6 +417,102 @@ input[type="radio"]:checked:after {
     }
   }
 
+  // Check Box 10 -------------------------------------------
+  $('.testing_10').click(function() {
+    $('input[type="radio"]').not(':checked').prop("checked", true);
+    $('#build_ten').click(); 
+  });
+
+  if ($('input#build_ten_10_2').is(':checked')) {
+    var isChecked= document.getElementById('checkbox11').checked;
+    if(isChecked){ //checked
+      console.log('Not Checked')
+    }else{ //unchecked
+      document.getElementById("checkbox11").checked=true;
+    }
+  }
+
+// Check Box 11 -------------------------------------------
+  $('.testing_11').click(function() {
+    $('input[type="radio"]').not(':checked').prop("checked", true);
+    $('#build_eleven').click(); 
+  });
+
+  if ($('input#build_eleven_11_2').is(':checked')) {
+    var isChecked= document.getElementById('checkbox12').checked;
+    if(isChecked){ //checked
+      console.log('Not Checked')
+    }else{ //unchecked
+      document.getElementById("checkbox12").checked=true;
+    }
+  }
+
+// Check Box 12 -------------------------------------------
+  $('.testing_12').click(function() {
+    $('input[type="radio"]').not(':checked').prop("checked", true);
+    $('#build_twelve').click(); 
+  });
+
+  if ($('input#build_twelve_12_2').is(':checked')) {
+    var isChecked= document.getElementById('checkbox13').checked;
+    if(isChecked){ //checked
+      console.log('Not Checked')
+    }else{ //unchecked
+      document.getElementById("checkbox13").checked=true;
+    }
+  }
+
+// Check Box 12 -------------------------------------------
+  $('.testing_13').click(function() {
+    $('input[type="radio"]').not(':checked').prop("checked", true);
+    $('#build_thirteen').click(); 
+  });
+
+  if ($('input#build_thirteen_13_2').is(':checked')) {
+    var isChecked= document.getElementById('checkbox14').checked;
+    if(isChecked){ //checked
+      console.log('Not Checked')
+    }else{ //unchecked
+      document.getElementById("checkbox14").checked=true;
+    }
+  }
+
+// Check Box 12 -------------------------------------------
+  $('.testing_14').click(function() {
+    $('input[type="radio"]').not(':checked').prop("checked", true);
+    $('#build_fourteen').click(); 
+  });
+
+  if ($('input#build_fourteen_14_2').is(':checked')) {
+    var isChecked= document.getElementById('checkbox15').checked;
+    if(isChecked){ //checked
+      console.log('Not Checked')
+    }else{ //unchecked
+      document.getElementById("checkbox15").checked=true;
+    }
+  }
+
+// Check Box 12 -------------------------------------------
+  $('.testing_15').click(function() {
+    $('input[type="radio"]').not(':checked').prop("checked", true);
+    $('#build_fifthteen').click(); 
+  });
+
+  if ($('input#build_fifthteen_15_2').is(':checked')) {
+    var isChecked= document.getElementById('checkbox16').checked;
+    if(isChecked){ //checked
+      console.log('Not Checked')
+    }else{ //unchecked
+      document.getElementById("checkbox16").checked=true;
+    }
+  }
+
+
+
+
+
+
+  // Timline Logic -------------------------------------------
 	function updateProgress() {
 		var startDate = "<%= @project.start_date %>";
 		var endDate = "<%= @project.end_date %>";
