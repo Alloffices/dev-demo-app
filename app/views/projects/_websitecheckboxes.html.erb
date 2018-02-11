@@ -3,7 +3,7 @@
   <input type="checkbox" value="1" id="checkbox2" class="testing">
   <label for="checkbox2">Internal Services Pages (√)</label>
   <div class="check-boxes-todo-list">
-    <%= form_with(model: @project, local: true) do |form| %>
+    <%= form_with(model: @project, remote: true, local: true) do |form| %>
       <div>
         <div id="info_true">
           <%= form.radio_button :build_one, false, :checked => true, :value => false, id: "build_one_1", :style => "visibility:hidden"  %>
