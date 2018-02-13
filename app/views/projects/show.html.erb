@@ -171,20 +171,19 @@ input[type="radio"]:checked:after {
           <div class="card-block">
             <div class="row">
               <div class="col-lg-4">
-                <h5>Website 
-                  <span class="semi-bold">Build</span>
-                </h5>
-                <p>In this phase we will build out the structure of the home page, internal pages, setup contact forms and overall site map.</p>
-                <br>
-                <%= render 'websitecheckboxes' %>
-              </div>
-              <div class="col-lg-4">
                 <h5>Website
                   <span class="semi-bold">Content</span>
                 </h5>
                 <p>Content team will provide all of the content and images needed throughout the website. Content team will also review content to make sure that it was added correctly.</p>
                 <br>
                 <%= render 'contentcheckboxes' %>
+                <br />
+                <h5>Website 
+                  <span class="semi-bold">Build</span>
+                </h5>
+                <p>In this phase we will build out the structure of the home page, internal pages, setup contact forms and overall site map.</p>
+                <br>
+                <%= render 'websitecheckboxes' %>
               </div>
               <div class="col-lg-4">
                 <h5>Pre-Launch
@@ -195,23 +194,12 @@ input[type="radio"]:checked:after {
                 <%= render "prelaunch" %>
               </div>
               <div class="col-lg-4">
-                <h5>Website
-                  <span class="semi-bold">Content</span>
+                <h5>Approval
+                  <span class="semi-bold">Checklist</span>
                 </h5>
-                <p>Content team will provide all of the content and images needed throughout the website. Content team will also review content to make sure that it was added correctly.</p>
+                <p>This list needs to be completed before you send to client.</p>
                 <br>
-                <div class="checkbox  check-primary">
-                  <input type="checkbox" value="1" id="checkbox7">
-                  <label for="checkbox7">Added Content</label>
-                </div>
-                <div class="checkbox check-primary">
-                  <input type="checkbox" value="1" id="checkbox8">
-                  <label for="checkbox8">Added Images</label>
-                </div>
-                <div class="checkbox check-primary">
-                  <input type="checkbox" value="1" id="checkbox9">
-                  <label for="checkbox9"Completed Content Revisions</label>
-                </div>
+                <%= render "prelaunch" %>
               </div>
             </div>
           </div>
