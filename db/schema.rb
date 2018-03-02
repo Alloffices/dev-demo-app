@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180211004025) do
+ActiveRecord::Schema.define(version: 20180224165545) do
 
   create_table "devtools", force: :cascade do |t|
     t.text "icon"
@@ -64,6 +64,19 @@ ActiveRecord::Schema.define(version: 20180211004025) do
     t.boolean "build_twenteefive"
     t.boolean "build_twenteesix"
     t.boolean "build_twenteeseven"
+    t.boolean "build_twentyeight"
+    t.boolean "build_twentynine"
+    t.boolean "build_thrity"
+    t.boolean "build_thirtyone"
+    t.boolean "build_thirtytwo"
+    t.boolean "build_thirtythree"
+    t.boolean "build_thirtyfour"
+    t.boolean "build_thirtyfive"
+    t.boolean "build_thirtysix"
+    t.boolean "build_thirtyseven"
+    t.boolean "build_thirtyeight"
+    t.boolean "build_thirtynine"
+    t.boolean "build_fourty"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 

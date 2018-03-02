@@ -1,33 +1,33 @@
 <!-- Checkbox One ////////////////////////////////////////////////////// -->
 <div class="checkbox check-primary relative-for-checkboxes">
-  <input type="checkbox" value="1" id="checkbox2" class="testing">
-  <label for="checkbox2">Build Home Page (Refer to Mockup)</label>
+  <input type="checkbox" value="1" id="checkbox29" class="testing_28">
+  <label for="checkbox29">Build Home Page (Referto Mockup)</label>
   <div class="check-boxes-todo-list">
     <%= form_with(model: @project, remote: true, local: true) do |form| %>
       <div>
         <div id="info_true">
-          <%= form.radio_button :build_one, false, :checked => true, :value => false, id: "build_one_1", :style => "visibility:hidden"  %>
-          <%= form.radio_button :build_one, true, :value => true, id: "build_one_2", :style => "visibility:hidden" %>
+          <%= form.radio_button :build_twentyeight, false, :checked => true, :value => false, id: "build_twentyeight_28_1", :style => "visibility:hidden"  %>
+          <%= form.radio_button :build_twentyeight, true, :value => true, id: "build_twentyeight_28_2", :style => "visibility:hidden" %>
         </div>
       </div>
-      <%= form.submit id: "build_one", :style => "visibility:hidden;", data: { confirm: "Are you sure?"} %>
+      <%= form.submit id: "build_twentyeight", :style => "visibility:hidden;", data: { confirm: "Are you sure?"} %>
     <% end %>
   </div>
 </div>
 
 <!-- Checkbox Two ////////////////////////////////////////////////////// -->
 <div class="checkbox check-primary relative-for-checkboxes">
-  <input type="checkbox" value="1" id="checkbox3" class="testing_2">
-  <label for="checkbox3">Build About Page (with Contact form)</label>
+  <input type="checkbox" value="1" id="checkbox30" class="testing_29">
+  <label for="checkbox30">Build About Page (with Contact form)</label>
   <div class="check-boxes-todo-list">
     <%= form_with(model: @project, local: true) do |form| %>
       <div>
         <div id="info_true">
-          <%= form.radio_button :build_two, false, :checked => true, :value => false, id: "build_two_2_1", :style => "visibility:hidden"  %>
-          <%= form.radio_button :build_two, true, :value => true, id: "build_two_2_2", :style => "visibility:hidden" %>
+          <%= form.radio_button :build_twentynine, false, :checked => true, :value => false, id: "build_twentynine_29_1", :style => "visibility:hidden"  %>
+          <%= form.radio_button :build_twentynine, true, :value => true, id: "build_twentynine_29_2", :style => "visibility:hidden" %>
         </div>
       </div>
-      <%= form.submit id: "build_two", :style => "visibility:hidden;", data: { confirm: "Are you sure?"} %>
+      <%= form.submit id: "build_twentynine", :style => "visibility:hidden;", data: { confirm: "Are you sure?"} %>
     <% end %>
   </div>
 </div>

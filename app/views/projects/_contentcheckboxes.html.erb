@@ -1,7 +1,7 @@
 <!-- Checkbox One ////////////////////////////////////////////////////// -->
 <div class="checkbox check-primary relative-for-checkboxes">
   <input type="checkbox" value="1" id="checkbox11" class="testing_10">
-  <label for="checkbox11">*****( No Content )*****</label>
+  <label for="checkbox11">*****( Providing Content )*****</label>
   <div class="check-boxes-todo-list">
     <%= form_with(model: @project, local: true) do |form| %>
       <div>
@@ -62,23 +62,6 @@
         </div>
       </div>
       <%= form.submit id: "build_thirteen", :style => "visibility:hidden;", data: { confirm: "Are you sure?"} %>
-    <% end %>
-  </div>
-</div>
-
-<!-- Checkbox five ////////////////////////////////////////////////////// -->
-<div class="checkbox check-primary relative-for-checkboxes" style="display:none !important;">
-  <input type="checkbox" value="1" id="checkbox15" class="testing_14">
-  <label for="checkbox15"></label>
-  <div class="check-boxes-todo-list">
-    <% form_with(model: @project, local: true) do |form| %>
-      <div>
-        <div id="info_true">
-          <%= form.radio_button :build_fourteen, false, :checked => true, :value => false, id: "build_fourteen_14_1", :style => "visibility:hidden"  %>
-          <%= form.radio_button :build_fourteen, true, :value => true, id: "build_fourteen_14_2", :style => "visibility:hidden" %>
-        </div>
-      </div>
-      <%= form.submit id: "build_fourteen", :style => "visibility:hidden;", data: { confirm: "Are you sure?"} %>
     <% end %>
   </div>
 </div>
