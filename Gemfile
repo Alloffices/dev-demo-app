@@ -15,7 +15,7 @@ gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'devise', '~> 4.2'
 gem 'acts_as_votable', '~> 0.11.0'
 gem 'gon'
-gem 'newrelic_rpm'
+gem "rufus-scheduler"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
