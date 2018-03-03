@@ -81,9 +81,21 @@ input[type="radio"]:checked:after {
             <div class="row">
               <div class="col-xl-7 col-lg-6 ">
                 <!-- START card -->
-                <div class="card card-default" style="height:400px!important;padding:20px!important;overflow:scroll!important;">
+                <div class="card card-default" id="scroll">
+                <style type="text/css">
+                  #scroll {
+                    height:400px!important;
+                    padding:20px!important;
+                    overflow:scroll!important;
+                  }
+                  @media all and (max-width:991px) {
+                    #scroll {
+                      display:none;
+                    } 
+                  }
+                </style>
                   <div class="card-block text-center project-preview">
-                    <img class="image-responsive-height demo-mw-600" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/552b6934229389.56c8c0299f390.png" alt="">
+                    <img class="image-responsive-height demo-mw-600" src="<%= @project.mockup %>" alt="">
                   </div>
                 </div>
                 <!-- END card -->
