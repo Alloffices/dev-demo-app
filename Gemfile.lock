@@ -42,6 +42,7 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
+    awesome_print (1.8.0)
     bcrypt (3.1.11)
     bindex (0.5.0)
     builder (3.2.3)
@@ -206,6 +207,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_votable (~> 0.11.0)
+  awesome_print
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
