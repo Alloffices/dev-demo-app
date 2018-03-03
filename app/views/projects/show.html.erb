@@ -65,6 +65,9 @@ input[type="radio"]:after {
 input[type="radio"]:checked:after {
     background-color: #3ac569;
 }​
+.jumbotron {
+  background-color:#f5f6f7 !important;
+}
 </style>
 
 <!-- START PAGE-CONTAINER -->
@@ -74,38 +77,47 @@ input[type="radio"]:checked:after {
     <!-- START PAGE CONTENT -->
     <div class="content ">
       <!-- START JUMBOTRON -->
-      <div class="jumbotron">
+      <div class="jumbotron actions-absolute" style="background-color:#f5f6f7!important;border-bottom:1px solid#eaeaeb;">
         <div class=" container p-l-0 p-r-0   container-fixed-lg sm-p-l-0 sm-p-r-0">
           <div class="inner">
             <!-- START BREADCRUMB -->
             <div class="row">
-              <div class="col-xl-7 col-lg-6 ">
-                <!-- START card -->
-                <div class="card card-default" id="scroll">
-                <style type="text/css">
-                  #scroll {
-                    height:400px!important;
-                    padding:20px!important;
-                    overflow:scroll!important;
-                  }
-                  @media all and (max-width:991px) {
-                    #scroll {
-                      display:none;
-                    } 
-                  }
-                </style>
-                  <div class="card-block text-center project-preview">
-                    <img class="image-responsive-height demo-mw-600" src="<%= @project.mockup %>" alt="">
-                  </div>
-                </div>
-                <!-- END card -->
-              </div>
               <div class="col-xl-5 col-lg-6 ">
                 <!-- START card -->
+                      <style type="text/css">
+                        .back-text {
+                          font-family: 'Montserrat';
+                          text-transform: uppercase;
+                          display: inline-block;
+                          letter-spacing: 0.06em;
+                          font-size: 10.5px;
+                          font-weight: 500;
+                          margin: 0;
+                          padding: 6px 0 0px 4px;
+                          line-height: normal;
+                          overflow: hidden;
+                          text-overflow: ellipsis;
+                          -webkit-text-stroke: 0px;
+                          filter: alpha(opacity=40);
+                          -webkit-transition: opacity 0.3s ease;
+                          transition: opacity 0.3s ease;
+                          color:#64676a;
+                        }
+                        .back-container {
+                          padding-top: 1em;
+                        }
+                      </style>
+                      <div class="back-container">
+                        <a href="/">
+                          <img style="width:25px;height:25px;vertical-align:top;" src="https://i.imgur.com/TiINSND.png" />
+                          <span class="back-text">View All Projects</span>
+                        </a>
+                      </div>
+                      <%= link_to 'Edit', edit_project_path(@project) %>
                 <div class="card card-transparent">
-                  <div class="card-header">
+<!--                   <div class="card-header">
                     <div class="card-title">Active Website Build</div>
-                  </div>
+                  </div> -->
                   <div class="card-block">
 										<div class="col-md-12 d-flex" style="padding:0">
 				              <!-- START WIDGET widget_weekly_sales_card-->
@@ -136,31 +148,56 @@ input[type="radio"]:checked:after {
                     <div>
                     	<h5>Project Members</h5>
                       <div class="profile-img-wrapper m-t-5 inline">
-                        <img width="35" height="35" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg" alt="">
+                        <div style="width:35px;height:35px;background:url('https://stupefied-hawking-2bbe75.netlify.com/<%= @project.accountm %>.png');background-position:top center;background-size:cover;background-repeat:no-repeat;"></div>
                         <div class="chat-status available">
                         </div>
                       </div>
                       <div class="profile-img-wrapper m-t-5 m-l-10 inline">
-                        <img width="35" height="35" src="https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg" alt="">
+                        <div style="width:35px;height:35px;background:url('https://stupefied-hawking-2bbe75.netlify.com/<%= @project.developer %>.png');background-position:top center;background-size:cover;background-repeat:no-repeat;"></div>
                         <div class="chat-status available">
                         </div>
                       </div>
                       <div class="profile-img-wrapper m-t-5 m-l-10 inline">
-                        <img width="35" height="35" src="https://s3.amazonaws.com/uifaces/faces/twitter/tomaslau/128.jpg" alt="">
+                        <div style="width:35px;height:35px;background:url('https://stupefied-hawking-2bbe75.netlify.com/<%= @project.designer %>.png');background-position:top center;background-size:cover;background-repeat:no-repeat;"></div>
                         <div class="chat-status available">
                         </div>
                       </div>
                       <% if user_signed_in?%>
-                      <div style="clear:both;height:10px;"></div>
-                      <%= link_to 'Edit', edit_project_path(@project) %> |
+                      <div style="clear:both;"></div>
+                      <h5>Dev Link</h5>
+                      <a style="color:#2b90d9;" href="<%= @project.devlink %>" target="_blank"><%= @project.devlink %></a>
                       <% end %>
-                      <%= link_to 'Back', projects_path %>
+                      <br style="height:20px;" />
                     </div>
 
                   </div>
                 </div>
                 <!-- END card -->
               </div>
+              <div class="col-xl-7 col-lg-6 ">
+                <!-- START card -->
+                <div class="card card-default" id="scroll">
+
+                <style type="text/css">
+                  #scroll {
+                    position:relative;
+                    height:400px!important;
+                    padding:20px!important;
+                    overflow:scroll!important;
+                  }
+                  .project-preview {position:relative;}
+                  @media all and (max-width:991px) {
+                    #scroll {
+                      display:none;
+                    } 
+                  }
+                </style>
+                  <div class="card-block text-center project-preview">
+                    <img class="image-responsive-height demo-mw-600" src="<%= @project.mockup %>" alt="">
+                  </div>
+                </div>
+                <!-- END card -->
+              </div>              
             </div>
           </div>
         </div>

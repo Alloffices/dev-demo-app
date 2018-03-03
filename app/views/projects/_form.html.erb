@@ -22,15 +22,34 @@
             <%= form.text_field :name, id: :project_name, :maxlength => 30, :size => 30, :class => "input_forms", placeholder: "Give your project a name", required: true %>
           </div>
           <div class="field">
-            <h2 class="form-labels">Enter Link</h2>
-            <p class="form-sub-txt">Enter the basecamp progress project link</p> 
+            <h2 class="form-labels">Enter Basecamp Link</h2>
             <%= form.text_field :plinks, id: :project_name, :class => "input_forms", placeholder: "Enter basecamp project progress link", required: true %>
           </div>
           <div class="field">
             <h2 class="form-labels">Enter Mockup Link</h2>
-            <p class="form-sub-txt">Enter the link to the mockup</p> 
             <%= form.text_field :mockup, id: :project_name, :class => "input_forms", placeholder: "Enter project mockup link", required: true %>
           </div>
+
+          <div class="field">
+            <h2 class="form-labels">Enter Developer Site Link</h2>
+            <%= form.text_field :devlink, id: :project_name, :class => "input_forms", placeholder: "Enter developer site link", required: true %>
+          </div>
+
+          <div class="field">
+            <h2 class="form-labels">Account Manager</h2>
+            <%= form.text_field :accountm, id: :project_name, :class => "input_forms", placeholder: "Account Manager Name", required: false %>
+          </div>
+
+          <div class="field">
+            <h2 class="form-labels">Site Developer</h2>
+            <%= form.text_field :developer, id: :project_name, :class => "input_forms", placeholder: "Developer Name", required: false %>
+          </div>
+
+          <div class="field">
+            <h2 class="form-labels">Site Designer</h2>
+            <%= form.text_field :designer, id: :project_name, :class => "input_forms", placeholder: "Enter project mockup link", required: false %>
+          </div>
+
           <!-- button to addfriend method here -->
            <div class="field">
             <h2 class="form-labels">Enter Project Date</h2>
@@ -41,6 +60,7 @@
             <p class="form-sub-txt">Project End Date</p> 
             <%= form.text_field :end_date, id: "endDate" , onchange: "javascript:updateProgress();", class: "input_forms", required: true %>
           </div>
+
           <div class="actions">
             <%= form.submit class: "btn-create-new", data: { confirm: "Are you sure?"} %>
           </div>
