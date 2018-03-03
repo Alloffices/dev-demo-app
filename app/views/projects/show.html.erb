@@ -113,7 +113,9 @@ input[type="radio"]:checked:after {
                           <span class="back-text">View All Projects</span>
                         </a>
                       </div>
+                      <% if user_signed_in?%>
                       <%= link_to 'Edit', edit_project_path(@project) %>
+                      <% end %>
                 <div class="card card-transparent">
 <!--                   <div class="card-header">
                     <div class="card-title">Active Website Build</div>
@@ -128,7 +130,7 @@ input[type="radio"]:checked:after {
 				                      <div class="p-t-5 p-b-30">
 				                        <h1 class="no-margin p-b-20"><%= @project.name %></h1>
 				                        <span class="small hint-text pull-left">Start: <%= @project.start_date.strftime("%m/%d/%Y") %></span>
-				                        <span class="pull-right small text-primary">Launch: <%= @project.end_date.strftime("%m/%d/%Y") %></span>
+				                        <span class="pull-right hint-text">Launch: <%= @project.end_date.strftime("%m/%d/%Y") %></span>
 				                      </div>
 				                    </div>
 				                  </div>
@@ -162,11 +164,9 @@ input[type="radio"]:checked:after {
                         <div class="chat-status available">
                         </div>
                       </div>
-                      <% if user_signed_in?%>
                       <div style="clear:both;"></div>
                       <h5>Dev Link</h5>
                       <a style="color:#2b90d9;" href="<%= @project.devlink %>" target="_blank"><%= @project.devlink %></a>
-                      <% end %>
                       <br style="height:20px;" />
                     </div>
 
