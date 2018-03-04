@@ -35,7 +35,7 @@
                 <div class="container-xs-height full-height">
                   <div class="row-xs-height">
                     <div class="col-xs-height col-top">
-                      <div class="card-header  top-left top-right">
+                      <div class="card-header  top-left top-right" style="height:0;min-height:0;">
                         <div class="card-title">
                           <span class="font-montserrat fs-11 all-caps"><a class="details-link" rel="nofollow" target="_blank" href="<%= project.plinks %>">Basecamp</a> <i class="fa fa-chevron-right"></i> 
                               <% if user_signed_in?  %>
@@ -50,7 +50,15 @@
                         </div>
                         <div class="card-controls">
                           <ul>
-                            <li><a href="#" class="portlet-refresh text-black" data-toggle="refresh"><i class="portlet-icon portlet-icon-refresh"></i></a>
+                            <li>
+                              <% if project.accountm? %>
+                              <div style="width:40px;height:40px;background:url('https://stupefied-hawking-2bbe75.netlify.com/<%= project.accountm %>.png');background-position:top center;background-size:contain;background-repeat:no-repeat;border-radius:100%;border:1px solid #e4e5e6;"></div>
+                              <% end %>
+                            </li>
+                            <li>
+                              <% if project.developer? %>
+                              <div style="width:40px;height:40px;background:url('https://stupefied-hawking-2bbe75.netlify.com/<%= project.developer %>.png');background-position:top center;background-size:contain;background-repeat:no-repeat;border-radius:100%;border:1px solid #e4e5e6;"></div>
+                              <% end %>
                             </li>
                           </ul>
                         </div>
