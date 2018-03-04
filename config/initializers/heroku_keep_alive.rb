@@ -1,10 +1,10 @@
-require 'rufus/scheduler'
+require 'rufus-scheduler'
 scheduler = Rufus::Scheduler.new
 
-    if Rails.env.production?
-      scheduler.every '10m' do
-         require "net/http"
-         require "uri"
-         Net::HTTP.get_response(URI.parse(ENV["HOSTNAME"]))
-      end
-    end
+if Rails.env.production?
+	scheduler.every '10m' do
+	 require "net/http"
+	 require "uri"
+	 Net::HTTP.get_response(URI.parse(ENV["HOSTNAME"]))
+	end
+end
