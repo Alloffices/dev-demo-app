@@ -46,8 +46,16 @@
           </div>
 
           <div class="field">
-            <h2 class="form-labels">Site Designer</h2>
-            <%= form.text_field :designer, id: :project_name, :class => "input_forms", placeholder: "Enter project mockup link", required: false %>
+            <h2 class="form-labels">Project Status</h2>
+              <div>
+                <div id="info_true">
+                  <%= form.select(:activebuild, [['ActiveBuild', 'ActiveBuild'],
+                                  ['Inactive', 'Inactive'],
+                                  ['Launched', 'Launched']
+                                  ],{ :prompt => "Please select"}
+                                 ) %>
+                </div>
+              </div>
           </div>
 
           <!-- button to addfriend method here -->

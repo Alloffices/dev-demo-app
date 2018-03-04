@@ -1,0 +1,85 @@
+<!-- START card -->
+<div class="card card-transparent">
+<div class="card-header"  style="padding: 20px 0px 7px 0px;">
+<div class="card-title">Inactive Builds</div>
+<div class="pull-right">
+  <div class="col-xs-12">
+  </div>
+</div>
+</div>
+<div class="clearfix"></div>
+
+<div class="content">
+<!-- START CONTAINER FLUID -->
+<div class="container sm-padding-10 p-t-20 p-l-0 p-r-0">
+  <!-- START ROW -->
+  <div class="row">
+    <!-- Logic Start -->
+    <% @projects.each_with_index do |project, index| %>
+      <% if project.activebuild === "Inactive" %>
+        <div class="col-sm-12 col-md-6 col-lg-4 d-flex flex-column">
+          <!-- START WIDGET widget_weekly_sales_card-->
+          <div class="card no-border widget-loader-bar m-b-10 m-r-10">
+            <div class="container-xs-height full-height">
+              <div class="row-xs-height">
+                <div class="col-xs-height col-top">
+                  <div class="card-header  top-left top-right" style="height:0;min-height:0;">
+                    <div class="card-title">
+                      <span class="font-montserrat fs-11 all-caps"><a class="details-link" rel="nofollow" target="_blank" href="<%= project.plinks %>">Basecamp</a> <i class="fa fa-chevron-right"></i> 
+                          <% if user_signed_in?  %>
+                          <!-- User must be signed in -->
+                          <% if current_user.admin? %>
+                            | <%= link_to edit_project_path(project) do %><i class="fa fa-cog" aria-hidden="true"></i><% end %> | <%= link_to project, :method => :delete, :confirm => "Are you sure?" do %><i class="fa fa-trash" aria-hidden="true"></i><% end %>
+                          <% end %>
+                          <% else %>
+                            <!-- Must sign in --> 
+                          <% end %>
+                        </span>
+                    </div>
+                    <div class="card-controls">
+                      <ul>
+                        <li>
+                          <% if project.accountm? %>
+                          <div style="width:35px;height:35px;background:url('https://stupefied-hawking-2bbe75.netlify.com/<%= project.accountm %>.png');background-position:top center;background-size:cover;background-repeat:no-repeat;border-radius:100%;border:1px solid #e4e5e6;"></div>
+                          <% end %>
+                        </li>
+                        <li>
+                          <% if project.developer? %>
+                          <div style="width:35px;height:35px;background:url('https://stupefied-hawking-2bbe75.netlify.com/<%= project.developer %>.png');background-position:top center;background-size:cover;background-repeat:no-repeat;border-radius:100%;border:1px solid #e4e5e6;"></div>
+                          <% end %>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row-xs-height">
+                <div class="col-xs-height col-top">
+                  <div class="p-l-20 p-t-50 p-b-40 p-r-20">
+                    <%= link_to project_path(project) do %>
+                    <h3 class="no-margin p-b-5"><%= project.name %></h3>
+                    <% end %>
+                    <span class="small hint-text pull-left">Start: <%= project.start_date.strftime("%b %d, %Y") %></span>
+                    <span class="pull-right small text-primary">Launch: <%= project.end_date.strftime("%b %d, %Y") %></span>
+                  </div>
+                </div>
+              </div>
+              <div class="row-xs-height">
+                <div class="col-xs-height col-bottom">
+                  <div id="progressbarForm">
+                    <div id="progressbar">    
+                      <div id="progressbar<%= index %>"></div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END WIDGET -->
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- END ROW -->
+</div>
