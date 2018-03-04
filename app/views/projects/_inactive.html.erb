@@ -11,7 +11,17 @@
 
 <div class="content">
 <!-- START CONTAINER FLUID -->
-<div class="container sm-padding-10 p-t-20 p-l-0 p-r-0">
+<style>
+  .inactive .font-montserrat,
+  .inactive .p-b-5,
+  .inactive .small,
+  .inactive .card-controls {opacity:.4;}
+  .inactive .text-primary {color:#626262 !important;}
+  .inactive .progress {
+    background: #fdc23e !important;
+  }
+</style>
+<div class="container sm-padding-10 p-t-20 p-l-0 p-r-0 inactive">
   <!-- START ROW -->
   <div class="row">
     <!-- Logic Start -->
@@ -57,7 +67,7 @@
                 <div class="col-xs-height col-top">
                   <div class="p-l-20 p-t-50 p-b-40 p-r-20">
                     <%= link_to project_path(project) do %>
-                    <h3 class="no-margin p-b-5"><%= project.name %></h3>
+                      <h3 class="no-margin p-b-5"><%= project.name %></h3>
                     <% end %>
                     <span class="small hint-text pull-left">Start: <%= project.start_date.strftime("%b %d, %Y") %></span>
                     <span class="pull-right small text-primary">Launch: <%= project.end_date.strftime("%b %d, %Y") %></span>
@@ -71,7 +81,6 @@
                       <div id="progressbar<%= index %>"></div>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
