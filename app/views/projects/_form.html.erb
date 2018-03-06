@@ -37,12 +37,42 @@
 
           <div class="field">
             <h2 class="form-labels">Account Manager</h2>
-            <%= form.text_field :accountm, id: :project_name, :class => "input_forms", placeholder: "Account Manager Name", required: false %>
+              <div>
+                <div id="info_true">
+                  <%= form.select(:accountm, [['aja', 'aja'],
+                                  ['jules', 'jules'],
+                                  ['orlando', 'orlando'],
+                                  ['taylor', 'taylor'],
+                                  ['tay', 'tay']
+                                  ],{ :prompt => "Please select"}
+                                 ) %>
+                </div>
+              </div>
           </div>
 
           <div class="field">
             <h2 class="form-labels">Site Developer</h2>
-            <%= form.text_field :developer, id: :project_name, :class => "input_forms", placeholder: "Developer Name", required: false %>
+              <div>
+                <div id="info_true">
+                  <%= form.select(:developer, [['dan', 'dan'],
+                                  ['oscar', 'oscar'],
+                                  ['manny', 'manny']
+                                  ],{ :prompt => "Please select"}
+                                 ) %>
+                </div>
+              </div>
+          </div>
+
+          <div class="field">
+            <h2 class="form-labels">Site Designer</h2>
+              <div>
+                <div id="info_true">
+                  <%= form.select(:designer, [['stef', 'stef'],
+                                  ['manny', 'manny']
+                                  ],{ :prompt => "Please select"}
+                                 ) %>
+                </div>
+              </div>
           </div>
 
           <div class="field">
