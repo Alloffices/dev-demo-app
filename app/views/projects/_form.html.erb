@@ -88,6 +88,18 @@
               </div>
           </div>
 
+          <div class="field">
+            <h2 class="form-labels">Editor Access</h2>
+              <div>
+                <div id="info_true">
+                  <%= form.select(:editaccess, [['Locked', 'fa-lock'],
+                                  ['Editable', '']
+                                  ],{ :prompt => "Please select"}
+                                 ) %>
+                </div>
+              </div>
+          </div>
+
           <!-- button to addfriend method here -->
            <div class="field">
             <h2 class="form-labels">Enter Project Date</h2>

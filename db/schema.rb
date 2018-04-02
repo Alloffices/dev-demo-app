@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180304045038) do
+ActiveRecord::Schema.define(version: 20180402003401) do
 
   create_table "devtools", force: :cascade do |t|
     t.text "icon"
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20180304045038) do
     t.string "activebuild"
     t.string "launched"
     t.string "inactive"
+    t.text "editaccess"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
