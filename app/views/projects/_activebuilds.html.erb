@@ -47,7 +47,8 @@
                               <% if user_signed_in?  %>
                               <!-- User must be signed in -->
                               <% if current_user.admin? %>
-                                | <%= link_to edit_project_path(project) do %><i class="fa fa-cog" aria-hidden="true"></i><% end %> | <%= link_to project, :method => :delete, :confirm => "Are you sure?" do %><i class="fa fa-trash" aria-hidden="true"></i><% end %>
+                                | <i class="fa <%= project.editaccess %>"> | <%= link_to edit_project_path(project) do %><i class="fa fa-cog" aria-hidden="true"></i><% end %> | <%= link_to project, :method => :delete, :confirm => "Are you sure?" do %><i class="fa fa-trash" aria-hidden="true"></i></i>
+                                <% end %> 
                               <% end %>
                               <% else %>
                                 <!-- Must sign in --> 
