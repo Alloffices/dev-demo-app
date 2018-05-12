@@ -14,10 +14,9 @@
     <%= include_gon %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
     <link rel="shortcut icon" href="https://i.imgur.com/0ZyRo7L.png" />
-    <!-- <link href="/assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" /> -->
     <link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="/assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
-    <!-- <link href="/assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" media="screen" /> -->
+
     <link href="/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css" media="screen">
     <link href="/assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" media="screen">
     <link href="/assets/plugins/jquery-datatable/media/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -48,9 +47,10 @@
             padding-left:0;
             margin-left:0;
         }
+
     </style>
   </head>
-    <body class="horizontal-menu horizontal-app-menu dashboard mac desktop pace-done">
+    <body class="horizontal-menu horizontal-app-menu dashboard mac desktop">
     <% if user_signed_in?  %>
       <%= render 'layouts/navigation' %>
     <% end %>
@@ -62,7 +62,7 @@
 
 
        <!-- BEGIN VENDOR JS -->
-    <script src="/assets/plugins/pace/pace.min.js" type="text/javascript" defer></script>
+    <!-- <script src="/assets/plugins/pace/pace.min.js" type="text/javascript" defer></script> -->
     <script src="/assets/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript" defer></script>
     <script src="/assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript" defer></script>
     <script src="/assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js" defer></script>
