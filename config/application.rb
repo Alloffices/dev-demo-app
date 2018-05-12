@@ -21,5 +21,8 @@ end
 module YourApp
   class Application < Rails::Application
     config.middleware.use Rack::Deflater
+    config.serve_static_assets = true
+	config.static_cache_control = "public, max-age=2419200"
   end
 end
+
