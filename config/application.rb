@@ -16,3 +16,10 @@ module DrTuts
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+
+# Enables GZip compression in Heroku Production
+module YourApp
+  class Application < Rails::Application
+    config.middleware.use Rack::Deflater
+  end
+end
