@@ -1,0 +1,61 @@
+<% if user_signed_in?  %>
+<%= link_to 'New Documentation', new_documentation_path %> | 
+<%= link_to 'Edit', edit_documentation_path(@documentation) %> |
+<%= link_to 'Back', documentations_path %>
+<% end %>
+<div class=" container  p-l-0 p-r-0   container-fixed-lg">
+  <div class="inner" style="transform: translateY(13.43px); opacity: 1;">
+    <!-- START BREADCRUMB -->
+    <div class="row">
+      <div class="col-xl-3 col-lg-2 ">
+        <!-- START card -->
+        <div class="card card-transparent" style="background-color:transparent;background:transparent;">
+          <div class="card-header ">
+            <div class="card-title">Documentation
+            </div>
+          </div>
+          <div class="card-block">
+            <div id="default-tree" class="m-b-20">
+
+              <ul class="dynatree-container documentation-hover">
+                <% @documentations.each do |documentation| %>
+                  <%= link_to documentation_path(documentation) do %>
+                    <li class="hover-list-item">
+                      <div class="dynatree-title card-title-inner"><%= documentation.title %></div>
+                    </li>
+                  <% end %>
+                  <% if user_signed_in?  %>
+                  <tr>
+                    <td><%= link_to 'Show', documentation %></td>
+                    <td><%= link_to 'Edit', edit_documentation_path(documentation) %></td>
+                    <td><%= link_to 'Destroy', documentation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  </tr>
+                  <% end %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-9 col-lg-10 ">
+        <!-- START card -->
+        <div class="card card-transparent">
+          <div class="card-block">
+            <h3 class="">
+              <%= @documentation.title %>
+            </h3>
+            <div>
+            	<%= markdown @documentation.description %>
+            </div>
+            <br>
+            <a href="http://wwwendt.de/tech/dynatree/doc/dynatree-doc.html" target="_blank" class="btn btn-complete">See Plugin</a>
+            <p class="small hinted-text inline v-align-middle m-l-10">see the plugin for
+              <br> http://wwwendt.de/tech/dynatree/
+            </p>
+          </div>
+        </div>
+        <!-- END card -->
+      </div>
+    </div>
+  </div>
+</div>

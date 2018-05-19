@@ -5,5 +5,6 @@ class User < ApplicationRecord
 
 	has_many :posts
   	has_many :projects
+	has_many :documentations
 
 end

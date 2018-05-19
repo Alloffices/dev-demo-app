@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :documentations
 	#routes.rb
 	devise_for :users, :path_prefix => 'd'
 	resources :users
