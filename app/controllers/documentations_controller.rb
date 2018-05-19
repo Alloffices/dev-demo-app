@@ -72,7 +72,7 @@ class DocumentationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def documentation_params
-      params.require(:documentation).permit(:title, :description)
+      params.require(:documentation).permit(:title, :description, :category)
     end
 
     def authorize_admin

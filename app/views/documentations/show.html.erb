@@ -24,13 +24,6 @@
                       <div class="dynatree-title card-title-inner"><%= documentation.title %></div>
                     </li>
                   <% end %>
-                  <% if user_signed_in?  %>
-                  <tr>
-                    <td><%= link_to 'Show', documentation %></td>
-                    <td><%= link_to 'Edit', edit_documentation_path(documentation) %></td>
-                    <td><%= link_to 'Destroy', documentation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                  </tr>
-                  <% end %>
                 <% end %>
               </ul>
             </div>

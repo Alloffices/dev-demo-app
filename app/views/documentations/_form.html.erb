@@ -1,27 +1,68 @@
-<%= form_with(model: documentation, local: true) do |form| %>
-  <% if documentation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(documentation.errors.count, "error") %> prohibited this documentation from being saved:</h2>
-
-      <ul>
-      <% documentation.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class=" container    container-fixed-lg">
+  <!-- START card -->
+  <div class="card card-transparent">
+    <div class="card-header ">
+      <div class="card-title">Active Website Documentation
+      </div>
     </div>
-  <% end %>
+    <div class="card-block">
+      <div class="row">
+        <div class="col-md-10">
+          <h3>Documentation Section</h3>
+          <p>Here is the area where you will add any new documentation about web development and will ellaborate as much as possible about the thing. Use detailed explanations, code references and images if possible to make it understandable and easy to learn/read.
+          </p>
+          <br>
+          <p class="small hint-text">Happy Coding Friends</p>
+          <%= form_with(model: documentation, local: true) do |form| %>
+            <% if documentation.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(documentation.errors.count, "error") %> prohibited this documentation from being saved:</h2>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :documentation_title %>
+                <ul>
+                <% documentation.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+          <form id="form-work" class="form-horizontal" role="form" autocomplete="off" novalidate="novalidate">
+            <div class="form-group row">
+              <label for="fname" class="col-md-3 control-label">Name</label>
+              <div class="col-md-9">
+                <%= form.text_field :title, id: :documentation_title, class: 'form-control', placeholder: "Full name" %>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3 control-label">Category</label>
+              <div class="col-md-9">
+                <div id="info_true">
+                  <%= form.select(:category, [['Wordpress', 'Wordpress'],
+                                  ['Bootstrap 4', 'Bootstrap 4'],
+                                  ['Wordpres Templating', 'Wordpres Templating']
+                                  ],{ :prompt => "Please select"}
+                                 ) %>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="name" class="col-md-3 control-label">Description</label>
+              <div class="col-md-9">
+                    <%= form.text_area :description, id: :documentation_description, class: 'form-control text-area-documentation', placeholder: 'Briefly Describe your Abilities' %>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-3">
+                <p>Once you create the post it will be added to the database. </p>
+              </div>
+              <div class="col-md-9">
+                    <%= form.submit 'Create', :class => 'btn btn-success' %>
+              </div>
+            </div>
+            <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :documentation_description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+  <!-- END card -->
+</div>
